@@ -1,0 +1,7 @@
+{
+  "name": "axie-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
