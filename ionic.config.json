@@ -1,0 +1,7 @@
+{
+  "name": "Axie-Front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
