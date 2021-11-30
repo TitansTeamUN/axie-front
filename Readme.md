@@ -29,9 +29,10 @@ Using a Linter should be discussed or considered at least, the project doesn't u
 
 ## Stylistic rules 
 
-Except for strange cases this rules should be considered 
+Except for strange cases this rules should be considered.
 
  - Use arrow functions  `const x = (args)=> {return y}` ( even for components ) check this for further info [Arrow Functions ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
  - For export modules use a file index.tsx in the folder where these are contained, this file imports ALL modules in the specific directory and export them as an object so we can use [Object Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to import them. There is an example of this in /components/basic.
+
 
 Some extra rules might be added in the future.
