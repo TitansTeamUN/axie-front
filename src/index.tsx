@@ -4,6 +4,8 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+import './index.css'; //Tailwind Styles
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
