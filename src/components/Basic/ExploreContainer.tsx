@@ -1,4 +1,4 @@
-
+import '../../index.css'; //Tailwind Styles
 const ExploreContainer = ({ name }) => {
   return (
     <div className="container">
