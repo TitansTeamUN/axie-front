@@ -16,7 +16,7 @@ New folders could be added if we consider that is necessary.
 
 ## Tailwind CSS Framework
 
-As we mentioned above, the framework for styles is going to be Tailwind,  it defines "countless" classes for a single style, and allow us to combining them even customizing to make exactly what we want to. 
+As we mentioned above, the framework for styles is going to be Tailwind,  it defines "countless" classes of a single style, and allow us to combining them even customizing to make exactly what we want to. 
 Tailwind for Ionic-React projects requires a setup, however it's already done.
 
 Would be ok that you check its docs [Tailwind Docs](https://tailwindcss.com/docs)
