@@ -5,23 +5,13 @@ import {
     IonTitle,
     IonToolbar,
   } from "@ionic/react";
-  import BotonMenuContainer from "../components/Basic/BotonMenuContainer";
-  import logo from '../resources/Logo-Axie.jpg';
+
+import {logo, BotonMenuContainer} from '../components/Basic/index'
   
-  const Tab3 = () => {
+  const Menu = () => {
     return (
       <IonPage>
-        <IonHeader>
-          <IonToolbar>
-            <IonTitle>Menu</IonTitle>
-          </IonToolbar>
-        </IonHeader>
         <IonContent fullscreen>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">Menú</IonTitle>
-            </IonToolbar>
-          </IonHeader>
           <img src={logo} alt="Logo" />
           <BotonMenuContainer nombre="My Axies" enlace="/tab1" ></BotonMenuContainer>
           <BotonMenuContainer nombre="Axies search" enlace="/tab2" ></BotonMenuContainer>
@@ -33,5 +23,5 @@ import {
     );
   };
   
-  export default Tab3;
+  export default Menu;
   
