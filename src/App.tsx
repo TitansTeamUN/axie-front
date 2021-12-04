@@ -32,6 +32,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import BreedingResults from "./pages/BreedingResults";
 
 const App = () => (
   <IonApp>
@@ -39,7 +40,7 @@ const App = () => (
       <IonTabs>
         <IonRouterOutlet>
           <Route exact path="/tab1">
-            <Tab1 />
+            <BreedingResults/>
           </Route>
           <Route exact path="/tab2">
             <Tab2 />
