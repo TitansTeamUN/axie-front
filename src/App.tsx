@@ -40,7 +40,7 @@ const App = () => (
       <IonTabs>
         <IonRouterOutlet>
           <Route exact path="/tab1">
-            <BreedingResults/>
+            <BreedingResults />
           </Route>
           <Route exact path="/tab2">
             <Tab2 />
