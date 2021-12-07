@@ -22,7 +22,7 @@ const login = () => {
         <img src={logo} alt="Logo" />
       </IonContent>
       <form>
-        <IonInput type="text" name="username" placeholder="Username"></IonInput>
+        <IonInput type="text" name="username" placeholder="Username" className="text-xl font-medium text-gray"></IonInput>
         <IonInput
           type="password"
           name="password"

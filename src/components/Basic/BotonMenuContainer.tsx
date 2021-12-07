@@ -5,9 +5,9 @@ const BotonMenuContainer = (props: { nombre: string, enlace: string }) => {
   
   return (
     <div className="container">
-      <IonButton type='button' ><Link to={{
+      <IonButton type='button'  className="text-gray"><Link to={{
     pathname: props.enlace
-  }}><strong>{props.nombre}</strong></Link></IonButton>
+  }} className="text-gray"><strong className="text-gray">{props.nombre}</strong></Link></IonButton>
     </div>
   );
 };
