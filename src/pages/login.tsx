@@ -13,24 +13,34 @@ import { logo } from "../components/Basic/index";
 const login = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Axie tools</IonTitle>
-        </IonToolbar>
+      <IonHeader className="h-1/4 align-middle py-2 text-center">
+          <IonTitle className="text-3xl my-auto py-auto h-full">Axie tools</IonTitle>
       </IonHeader>
-      <IonContent fullscreen>
-        <img src={logo} alt="Logo" />
+      <IonContent className="place-items-center">
+        <img src={logo} className="w-3/4 content-center mx-auto" alt="Logo" />
       </IonContent>
-      <form>
-        <IonInput type="text" name="username" placeholder="Username" className="text-xl font-medium text-gray"></IonInput>
-        <IonInput
-          type="password"
-          name="password"
-          placeholder="Password"
-        ></IonInput>
 
-        <IonButton type="submit">Login</IonButton>
-      </form>
+      <IonContent className="align-middle">
+        <form action="/Menu" className="space-y-6">
+          <IonInput
+            type="text"
+            name="username"
+            placeholder="Username"
+            className="text-xl font-medium text-white text-center placeholder-current"
+          ></IonInput>
+          <IonInput
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="text-xl font-medium text-center"
+          ></IonInput>
+          <div className="text-center">
+            <button type="submit" className="text-center bg-purple-800 p-4 w-1/3 rounded-lg font-bold">
+              Login
+            </button>
+          </div>
+        </form>
+      </IonContent>
     </IonPage>
   );
 };
