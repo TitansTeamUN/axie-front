@@ -9,14 +9,10 @@ import {
   IonButton,
   IonInput,
   IonLabel,
-  IonItem,
-  IonCol,
-  IonRow,
-  IonGrid,
 } from "@ionic/react";
 import { ellipsisVerticalOutline } from "ionicons/icons";
 
-import { NavBarMenu } from "../components/basic";
+import { NavBarMenu } from "../components/Basic";
 import { getAxieImgFromId } from "../utils";
 
 const Breeding = () => {
@@ -71,7 +67,11 @@ const Breeding = () => {
               Axie id
             </IonLabel>
             <div className="bg-white rounded-md">
-              <IonInput size={4} className="text-black " placeholder="12345678"></IonInput>
+              <IonInput
+                size={4}
+                className="text-black "
+                placeholder="12345678"
+              ></IonInput>
             </div>
           </div>
 
@@ -86,10 +86,13 @@ const Breeding = () => {
               Axie id
             </IonLabel>
             <div className="bg-white rounded-md">
-              <IonInput  className="text-black " placeholder="12345678"></IonInput>
+              <IonInput
+                className="text-black "
+                placeholder="12345678"
+              ></IonInput>
             </div>
           </div>
-          <IonButton color="tertiary"  className="justify-end">
+          <IonButton color="tertiary" className="justify-end">
             Breed
           </IonButton>
         </div>

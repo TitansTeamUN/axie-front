@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { ExploreContainer } from "../components/basic";
+import { ExploreContainer } from "../components/Basic";
 
 const Tab1 = () => {
   return (
