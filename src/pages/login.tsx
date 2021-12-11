@@ -3,18 +3,18 @@ import {
   IonHeader,
   IonPage,
   IonTitle,
-  IonToolbar,
   IonInput,
-  IonButton,
 } from "@ionic/react";
 
-import { logo } from "../components/Basic/index";
+import { logo } from "../components/Basic";
 
 const login = () => {
   return (
     <IonPage>
       <IonHeader className="h-1/4 align-middle py-2 text-center">
-          <IonTitle className="text-3xl my-auto py-auto h-full">Axie tools</IonTitle>
+        <IonTitle className="text-3xl my-auto py-auto h-full">
+          Axie tools
+        </IonTitle>
       </IonHeader>
       <IonContent className="place-items-center">
         <img src={logo} className="w-3/4 content-center mx-auto" alt="Logo" />
@@ -35,7 +35,10 @@ const login = () => {
             className="text-xl font-medium text-center"
           ></IonInput>
           <div className="text-center">
-            <button type="submit" className="text-center bg-purple-800 p-4 w-1/3 rounded-lg font-bold">
+            <button
+              type="submit"
+              className="text-center bg-purple-800 p-4 w-1/3 rounded-lg font-bold"
+            >
               Login
             </button>
           </div>
