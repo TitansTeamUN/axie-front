@@ -13,6 +13,8 @@ import { ellipse, square, triangle } from "ionicons/icons";
 import Breeding from "./pages/Breeding";
 import Tab2 from "./pages/Tab2";
 import Tab3 from "./pages/Tab3";
+import Menu from "./pages/Menu";
+import Login from "./pages/login";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -53,6 +55,12 @@ const App = () => (
           <Route path="/tab3">
             <AxiesSearch />
           </Route>
+          <Route path="/Menu">
+            <Menu />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route exact path="/">
             <Redirect to="/breeding" />
           </Route>
@@ -69,6 +77,10 @@ const App = () => (
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={square} />
             <IonLabel>Tab 3</IonLabel>
+          </IonTabButton> */}
+          <IonTabButton tab="Menu" href="/Menu">
+            <IonIcon icon={square} />
+            <IonLabel>Menu</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
