@@ -6,19 +6,20 @@ import {
   IonToolbar,
 } from "@ionic/react";
 
-import { logo, ButtonMenuContainer } from "../components/Basic";
+import { ButtonMenuContainer } from "../components/Basic";
 
 const Menu = () => {
   return (
     <IonPage>
       <div className="w-full h-2/6">
-        <img src={logo} alt="Logo" className="w-full mx-auto" />
+        <img
+          src="./assets/img/logo.jpg"
+          alt="Logo"
+          className="w-full mx-auto"
+        />
       </div>
       <div className="align-middle space-y-6 h-4/6 py-14">
-        <ButtonMenuContainer
-          name="My Axies"
-          link="/tab1"
-        ></ButtonMenuContainer>
+        <ButtonMenuContainer name="My Axies" link="/tab1"></ButtonMenuContainer>
 
         <ButtonMenuContainer
           name="Axies search"
@@ -30,10 +31,7 @@ const Menu = () => {
           link="/tab2"
         ></ButtonMenuContainer>
 
-        <ButtonMenuContainer
-          name="Breeding"
-          link="/tab2"
-        ></ButtonMenuContainer>
+        <ButtonMenuContainer name="Breeding" link="/tab2"></ButtonMenuContainer>
 
         <ButtonMenuContainer name="News" link="/tab2"></ButtonMenuContainer>
       </div>

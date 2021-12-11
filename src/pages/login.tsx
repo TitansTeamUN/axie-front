@@ -6,7 +6,7 @@ import {
   IonInput,
 } from "@ionic/react";
 
-import { logo } from "../components/Basic";
+
 
 const login = () => {
   return (
@@ -17,7 +17,11 @@ const login = () => {
         </IonTitle>
       </IonHeader>
       <IonContent className="place-items-center">
-        <img src={logo} className="w-3/4 content-center mx-auto" alt="Logo" />
+        <img
+          src="./assets/img/logo.jpg"
+          className="w-3/4 content-center mx-auto"
+          alt="Logo"
+        />
       </IonContent>
 
       <IonContent className="align-middle">
