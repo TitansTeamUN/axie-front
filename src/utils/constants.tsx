@@ -2,7 +2,7 @@
 
 const constantDemo = {
   constantOne: "StringType",
-  constantTwo: "123",
+  constantTwo: 123,
   ConstantThree: (parameter) => {
     //function-like constant
     return parameter;
