@@ -1,0 +1,9 @@
+.container__axieCard {
+  /* display: flex; */
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  padding: 5%;
+  align-items: center;
+  justify-content: center;
+}

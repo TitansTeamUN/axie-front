@@ -32,6 +32,9 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import BreedingResults from "./pages/BreedingResults";
+import MyAxies from "./pages/MyAxies";
+import AxiesSearch from "./pages/AxiesSearch";
 
 /* different styles */
 import "./theme/miscelaneous.css"
@@ -41,14 +44,14 @@ const App = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/breeding">
-            <Breeding />
+          <Route exact path="/tab1">
+            <BreedingResults />
           </Route>
           <Route exact path="/tab2">
-            <Tab2 />
+            <MyAxies />
           </Route>
           <Route path="/tab3">
-            <Tab3 />
+            <AxiesSearch />
           </Route>
           <Route exact path="/">
             <Redirect to="/breeding" />
