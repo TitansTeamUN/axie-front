@@ -33,40 +33,36 @@ const breedingResult = () => {
     geneQuality: "81.29%",
   };
   return (
-    <div>
-      <IonPage>
-        <Header title="Breeding - Results" />
-        <IonContent fullscreen>
-          <IonGrid>
-            <IonRow>
-              <IonCol size="2">
-                <IonImg src={breedingResult.image}></IonImg>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-          <div>
-            <BreedingResultTable
-              breedingResults={breedingResult.breedingResult}
-            />
-          </div>
-          <div>
-            <BreedingResultScore
-              BreedingResultScore={breedingResult.breedingResultScore}
-            />
-          </div>
-          <div>
-            <p>Gene Quality {breedingResult.geneQuality}</p>
-          </div>
-          <IonGrid>
-            <IonRow>
-              <IonCol size="6">
-                <IonButton>Breed again</IonButton>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-        </IonContent>
-      </IonPage>
-    </div>
+    <IonPage>
+      <Header title="Breeding - Results" />
+      <IonContent fullscreen>
+        <IonGrid style={{ display: "flex", justifyContent: "center" }}>
+          <IonRow style={{ justifyContent: "center" }}>
+            <IonCol size="2">
+              <IonImg src={breedingResult.image}></IonImg>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+        <BreedingResultTable breedingResults={breedingResult.breedingResult} />
+        <BreedingResultScore
+          BreedingResultScore={breedingResult.breedingResultScore}
+        />
+        <IonGrid style={{ display: "flex", justifyContent: "center" }}>
+          <IonRow style={{ justifyContent: "center" }}>
+            <IonCol>
+              <p>Gene Quality {breedingResult.geneQuality}</p>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+        <IonGrid style={{ display: "flex", justifyContent: "center" }}>
+          <IonRow style={{ justifyContent: "center" }}>
+            <IonCol>
+              <IonButton>Breed again</IonButton>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+      </IonContent>
+    </IonPage>
   );
 };
 

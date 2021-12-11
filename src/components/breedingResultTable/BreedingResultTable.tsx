@@ -1,19 +1,20 @@
 import { IonCol, IonGrid, IonRow } from "@ionic/react";
+import "./BreedingResultTable.css";
 
 const BreedingResultTable = ({ breedingResults }) => {
   return (
     <>
-      <IonGrid>
+      <IonGrid className="container__BeedingResultTable">
         <IonRow>
-          <IonCol size="10">
+          <IonCol>
             <IonRow>
-              <IonCol>
+              <IonCol size="4">
                 <p>Dominante</p>
               </IonCol>
-              <IonCol>
+              <IonCol size="4">
                 <p>Recesivo 1</p>
               </IonCol>
-              <IonCol>
+              <IonCol size="4">
                 <p>Recesivo 2</p>
               </IonCol>
             </IonRow>

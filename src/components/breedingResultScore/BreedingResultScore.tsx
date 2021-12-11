@@ -1,15 +1,16 @@
 import { IonCol, IonGrid, IonRow } from "@ionic/react";
+import "./BreedingResultScore.css";
 
 const BreedingResultScore = ({ BreedingResultScore }) => {
   return (
-    <IonGrid>
+    <IonGrid className="container__BeedingResultScore">
       <IonRow>
         <IonCol>
           <IonRow>
             <p>Meta Score: {BreedingResultScore.Score}</p>
           </IonRow>
           <IonRow>
-            <p>Status</p>
+            <p>Stats</p>
           </IonRow>
           <IonRow>
             {BreedingResultScore.ScoreArray.map((el) => {
