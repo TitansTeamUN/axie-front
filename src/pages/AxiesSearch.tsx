@@ -21,25 +21,29 @@ const AxiesSearch = () => {
   const myAxies = [
     {
       _id: "#9854654",
-      image: "",
+      image:
+        "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 7521,
       value: "$150",
     },
     {
       _id: "#5454654",
-      image: "",
+      image:
+        "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 434,
       value: "$4",
     },
     {
       _id: "#456456456",
-      image: "",
+      image:
+        "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 43543,
       value: "$466",
     },
     {
       _id: "#456456456",
-      image: "",
+      image:
+        "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 42,
       value: "$4535",
     },

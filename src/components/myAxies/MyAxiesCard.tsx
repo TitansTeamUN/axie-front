@@ -18,7 +18,9 @@ const MyAxiesCard = ({ _id, image, score, value, myAxie }) => {
         </IonCol>
       </IonRow>
       <IonRow>
-        <IonImg src={image}></IonImg>
+        <IonCol size="2">
+          <IonImg src={image}></IonImg>
+        </IonCol>
       </IonRow>
       {myAxie ? (
         <IonRow>
