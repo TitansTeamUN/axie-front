@@ -1,0 +1,17 @@
+{
+  
+  "cards": [
+    {
+      "name": "Shelter",
+      "alias": "Hermit",
+      "energy": "1",
+      "attack": "0",
+      "defense": "115",
+      "description": "Disable critical strikes on this Axie during this round.",
+      "attackType": "Melee",
+      "class": "Aquatic",
+      "partType": "Back",
+      "imgUrl": "https://storage.googleapis.com/axie-cdn/game/cards/base/aquatic-back-02.png"
+    }
+  ]
+}

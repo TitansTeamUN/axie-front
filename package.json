@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "3.3.2",
     "@capacitor/app": "1.0.6",
     "@capacitor/core": "3.3.2",
     "@capacitor/haptics": "1.1.3",
@@ -42,10 +43,12 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "start": "cracko start",
+    "build": "cracko build",
+    "test": "cracko test",
+    "eject": "cracko eject",
+    "ionic:build": "craco build",
+    "ionic:serve": "craco start"
   },
   "eslintConfig": {
     "extends": [

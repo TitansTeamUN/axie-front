@@ -1,37 +1,36 @@
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-  } from "@ionic/react";
-  import BotonMenuContainer from "../components/Basic/BotonMenuContainer";
-  import logo from '../resources/Logo-Axie.jpg';
-  
-  const Tab3 = () => {
-    return (
-      <IonPage>
-        <IonHeader>
-          <IonToolbar>
-            <IonTitle>Menu</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent fullscreen>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">Menú</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <img src={logo} alt="Logo" />
-          <BotonMenuContainer nombre="My Axies" enlace="/tab1" ></BotonMenuContainer>
-          <BotonMenuContainer nombre="Axies search" enlace="/tab2" ></BotonMenuContainer>
-          <BotonMenuContainer nombre="Card explorer" enlace="/tab2" ></BotonMenuContainer>
-          <BotonMenuContainer nombre="Breeding" enlace="/tab2" ></BotonMenuContainer>
-          <BotonMenuContainer nombre="News" enlace="/tab2" ></BotonMenuContainer>
-        </IonContent>
-      </IonPage>
-    );
-  };
-  
-  export default Tab3;
-  
+import { IonPage } from "@ionic/react";
+
+import { ButtonMenuContainer } from "../components/Basic";
+
+const Menu = () => {
+  return (
+    <IonPage>
+      <div className="w-full h-2/6">
+        <img
+          src="./assets/img/logo.jpg"
+          alt="Logo"
+          className="w-full mx-auto"
+        />
+      </div>
+      <div className="align-middle space-y-6 h-4/6 py-14">
+        <ButtonMenuContainer name="My Axies" link="/tab1"></ButtonMenuContainer>
+
+        <ButtonMenuContainer
+          name="Axies search"
+          link="/tab2"
+        ></ButtonMenuContainer>
+
+        <ButtonMenuContainer
+          name="Card explorer"
+          link="/tab2"
+        ></ButtonMenuContainer>
+
+        <ButtonMenuContainer name="Breeding" link="/tab2"></ButtonMenuContainer>
+
+        <ButtonMenuContainer name="News" link="/tab2"></ButtonMenuContainer>
+      </div>
+    </IonPage>
+  );
+};
+
+export default Menu;

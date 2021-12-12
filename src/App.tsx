@@ -10,10 +10,6 @@ import {
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { ellipse, square, triangle } from "ionicons/icons";
-import Tab1 from "./pages/Tab1";
-import Tab2 from "./pages/Tab2";
-import Tab3 from "./pages/Tab3";
-import Menu from "./pages/Menu";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -34,6 +30,18 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
+/* Page Components*/
+import BreedingResults from "./pages/BreedingResults";
+import MyAxies from "./pages/MyAxies";
+import AxiesSearch from "./pages/AxiesSearch";
+import Breeding from "./pages/Breeding";
+import Menu from "./pages/Menu";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+
+/* different styles */
+import "./theme/miscelaneous.css";
+
 const App = () => (
   <IonApp>
     <IonReactRouter>
@@ -43,20 +51,26 @@ const App = () => (
             <Tab1 />
           </Route>
           <Route exact path="/tab2">
-            <Tab2 />
+            <MyAxies />
           </Route>
           <Route path="/tab3">
-            <Tab3 />
+            <AxiesSearch />
           </Route>
-          <Route path="/Menu">
+          <Route path="/menu">
             <Menu />
           </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/breeding">
+            <Breeding />
+          </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/Login" />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          {/* <IonTabButton tab="tab1" href="/tab1">
+        <IonTabBar slot="bottom" hidden>
+          <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={triangle} />
             <IonLabel>Tab 1</IonLabel>
           </IonTabButton>
@@ -67,7 +81,7 @@ const App = () => (
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={square} />
             <IonLabel>Tab 3</IonLabel>
-          </IonTabButton> */}
+          </IonTabButton>
           <IonTabButton tab="Menu" href="/Menu">
             <IonIcon icon={square} />
             <IonLabel>Menu</IonLabel>

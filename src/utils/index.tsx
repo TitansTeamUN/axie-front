@@ -1,3 +1,4 @@
 import { constantDemo } from "./constants";
+import { getAxieImgFromId } from "./utils";
 
-export { constantDemo };
+export { getAxieImgFromId, constantDemo };
