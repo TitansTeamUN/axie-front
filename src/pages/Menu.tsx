@@ -13,21 +13,21 @@ const Menu = () => {
         />
       </div>
       <div className="align-middle space-y-6 h-4/6 py-14">
-        <ButtonMenuContainer name="My Axies" link="/tab1"></ButtonMenuContainer>
+        <ButtonMenuContainer name="My Axies" link="/tab2"></ButtonMenuContainer>
 
         <ButtonMenuContainer
           name="Axies search"
-          link="/tab2"
+          link="/tab3"
         ></ButtonMenuContainer>
 
         <ButtonMenuContainer
           name="Card explorer"
-          link="/tab2"
+          link="/menu"
         ></ButtonMenuContainer>
 
-        <ButtonMenuContainer name="Breeding" link="/tab2"></ButtonMenuContainer>
+        <ButtonMenuContainer name="Breeding" link="/breeding"></ButtonMenuContainer>
 
-        <ButtonMenuContainer name="News" link="/tab2"></ButtonMenuContainer>
+        <ButtonMenuContainer name="News" link="/menu"></ButtonMenuContainer>
       </div>
     </IonPage>
   );

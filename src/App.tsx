@@ -65,7 +65,7 @@ const App = () => (
             <Breeding />
           </Route>
           <Route exact path="/">
-            <Redirect to="/breeding" />
+            <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom" hidden>
