@@ -3,17 +3,14 @@ import {
   IonCol,
   IonContent,
   IonGrid,
-  IonHeader,
   IonImg,
   IonPage,
   IonRow,
-  IonTitle,
-  IonToolbar,
 } from "@ionic/react";
-import ExploreContainer from "../components/Basic/ExploreContainer";
+
 import BreedingResultScore from "../components/breedingResultScore/BreedingResultScore";
 import BreedingResultTable from "../components/breedingResultTable/BreedingResultTable";
-import Header from "../components/header/Header";
+
 
 const breedingResult = () => {
   const breedingResult = {
@@ -34,7 +31,7 @@ const breedingResult = () => {
   };
   return (
     <IonPage>
-      <Header title="Breeding - Results" />
+
       <IonContent fullscreen>
         <IonGrid style={{ display: "flex", justifyContent: "center" }}>
           <IonRow style={{ justifyContent: "center" }}>

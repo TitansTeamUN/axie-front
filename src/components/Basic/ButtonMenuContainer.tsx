@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ButtonMenuContainer = (props: { name: string; link: string }) => {
+const ButtonMenuContainer = ({ name, link }) => {
   return (
     <button
       type="button"
@@ -8,11 +8,11 @@ const ButtonMenuContainer = (props: { name: string; link: string }) => {
     >
       <Link
         to={{
-          pathname: props.link,
+          pathname: link,
         }}
         className="text-white"
       >
-        {props.name}
+        {name}
       </Link>
     </button>
   );

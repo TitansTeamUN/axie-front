@@ -6,7 +6,7 @@ import {
   IonPage,
   IonRow,
 } from "@ionic/react";
-import Header from "../header/Header";
+
 import "./MyAxiesCard.css";
 
 const MyAxiesCard = ({ _id, image, score, value, myAxie }) => {

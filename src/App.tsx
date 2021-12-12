@@ -10,11 +10,6 @@ import {
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { ellipse, square, triangle } from "ionicons/icons";
-import Breeding from "./pages/Breeding";
-import Tab2 from "./pages/Tab2";
-import Tab3 from "./pages/Tab3";
-import Menu from "./pages/Menu";
-import Login from "./pages/login";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -34,9 +29,14 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+
+/* Page Components*/
 import BreedingResults from "./pages/BreedingResults";
 import MyAxies from "./pages/MyAxies";
 import AxiesSearch from "./pages/AxiesSearch";
+import Breeding from "./pages/Breeding";
+import Menu from "./pages/Menu";
+import Home from "./pages/Home";
 
 /* different styles */
 import "./theme/miscelaneous.css";
@@ -55,11 +55,14 @@ const App = () => (
           <Route path="/tab3">
             <AxiesSearch />
           </Route>
-          <Route path="/Menu">
+          <Route path="/menu">
             <Menu />
           </Route>
-          <Route path="/login">
-            <Login />
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/breeding">
+            <Breeding />
           </Route>
           <Route exact path="/">
             <Redirect to="/breeding" />
