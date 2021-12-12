@@ -46,13 +46,13 @@ const App = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
+          <Route exact path="/breedingResults">
             <BreedingResults />
           </Route>
-          <Route exact path="/tab2">
+          <Route exact path="/myAxies">
             <MyAxies />
           </Route>
-          <Route path="/tab3">
+          <Route path="/axiesSearch">
             <AxiesSearch />
           </Route>
           <Route path="/menu">
