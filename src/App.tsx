@@ -39,7 +39,7 @@ import MyAxies from "./pages/MyAxies";
 import AxiesSearch from "./pages/AxiesSearch";
 
 /* different styles */
-import "./theme/miscelaneous.css"
+import "./theme/miscelaneous.css";
 
 const App = () => (
   <IonApp>
@@ -77,7 +77,7 @@ const App = () => (
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={square} />
             <IonLabel>Tab 3</IonLabel>
-          </IonTabButton> */}
+          </IonTabButton>
           <IonTabButton tab="Menu" href="/Menu">
             <IonIcon icon={square} />
             <IonLabel>Menu</IonLabel>
