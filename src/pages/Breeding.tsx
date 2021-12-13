@@ -92,7 +92,7 @@ const Breeding = () => {
               ></IonInput>
             </div>
           </div>
-          <IonButton color="tertiary" className="justify-end">
+          <IonButton color="tertiary" className="justify-end" onClick={()=>{ console.log("breed!")}}>
             Breed
           </IonButton>
         </div>

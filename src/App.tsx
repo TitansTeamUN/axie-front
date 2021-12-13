@@ -37,6 +37,7 @@ import AxiesSearch from "./pages/AxiesSearch";
 import Breeding from "./pages/Breeding";
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
+import News from "./pages/News";
 
 /* different styles */
 import "./theme/miscelaneous.css";
@@ -60,6 +61,9 @@ const App = () => (
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/news">
+            <News />
           </Route>
           <Route path="/breeding">
             <Breeding />
