@@ -1,18 +1,11 @@
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
-  IonMenuButton,
-  IonIcon,
   IonButton,
   IonInput,
   IonLabel,
 } from "@ionic/react";
-import { ellipsisVerticalOutline } from "ionicons/icons";
 
-import { NavBarMenu } from "../components/Basic";
 import Header from "../components/Basic/Header";
 import { getAxieImgFromId } from "../utils";
 
