@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
+import { IonButton } from "@ionic/react";
 
 const ButtonMenuContainer = ({ name, link }) => {
   return (
-    <button
+    <IonButton color="tertiary"
       type="button"
-      className="text-center bg-purple-800 p-4 w-1/3 rounded-lg font-bold block mx-auto"
+      className="justify-end block mx-auto w-1/2"
     >
       <Link
         to={{
           pathname: link,
         }}
-        className="text-white"
+        className="text-black"
       >
         {name}
       </Link>
-    </button>
+    </IonButton>
   );
 };
 
