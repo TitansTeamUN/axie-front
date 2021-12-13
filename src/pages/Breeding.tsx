@@ -40,7 +40,7 @@ const Breeding = () => {
 
   return (
     <IonPage>
-      <Header menu="menu" title="Breeding" menuOptions={demoMenuOptions} />
+      <Header menu="menu" title="Breeding" />
       <IonContent fullscreen color="primary">
         <div className="flex flex-col px-6 mt-6">
           <div className="flex">

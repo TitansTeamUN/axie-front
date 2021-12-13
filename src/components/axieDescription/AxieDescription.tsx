@@ -1,4 +1,5 @@
 import { IonButton, IonContent, IonModal } from "@ionic/react";
+import AxieCardDescription from "../axieCardDescription/AxieCardDescription";
 import BreedingResultScore from "../breedingResultScore/BreedingResultScore";
 import MyAxiesCard from "../myAxies/MyAxiesCard";
 
@@ -115,7 +116,7 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
   return (
     <IonModal isOpen={showModal} key={id}>
       <IonContent fullscreen color="primary">
-        <div className="grid justify-items-center">
+        <div className="grid justify-items-center p-8">
           <div>
             <p>About</p>
           </div>
@@ -130,7 +131,7 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
           </div>
           <div>
             <p>Body parts</p>
-            <div className="grid grid-rows-3 justify-items-center">
+            <div className="border-4 border-indigo-500/50 rounded-md m-1 p-2">
               <div className="grid grid-cols-2 justify-items-center">
                 <div>
                   <p>Eyes: {bodyParts.eyes}</p>
@@ -155,42 +156,39 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
           </div>
           <div>
             <p>Abilities</p>
+            <div className="border-4 border-indigo-500/50 rounded-md m-1 p-2"></div>
           </div>
           <div>
             <p>Parents</p>
-            {parents.map((el) => {
-              return (
-                <MyAxiesCard
-                  key={el._id}
-                  _id={el._id}
-                  image={el.image}
-                  score={el.score}
-                  value={el.value}
-                  myAxie={false}
-                  breedCount={el.breedCount}
-                />
-              );
-            })}
+            <div className="grid grid-cols-2 justify-items-center">
+              {parents.map((el) => {
+                return (
+                  <AxieCardDescription
+                    key={el._id}
+                    _id={el._id}
+                    image={el.image}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div>
             <p>Children</p>
-            {children.map((el) => {
-              return (
-                <MyAxiesCard
-                  key={el._id}
-                  _id={el._id}
-                  image={el.image}
-                  score={el.score}
-                  value={el.value}
-                  myAxie={false}
-                  breedCount={el.breedCount}
-                />
-              );
-            })}
+            <div className="grid grid-cols-2 justify-items-center">
+              {children.map((el) => {
+                return (
+                  <AxieCardDescription
+                    key={el._id}
+                    _id={el._id}
+                    image={el.image}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div>
             <p>Sales history</p>
-            <div className="grid grid-rows-3 justify-items-center">
+            <div className="border-4 border-indigo-500/50 rounded-md m-1 p-2">
               <div className="grid grid-cols-3 justify-items-center">
                 <p>Buyer</p>
                 <p>Seller</p>
@@ -199,7 +197,7 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
               <div className="grid grid-rows-3 justify-items-center">
                 {salesHistory.map((el) => {
                   return (
-                    <div className="grid grid-cols-3 justify-items-center">
+                    <div className="grid grid-cols-3 justify-items-center p-2">
                       <div>{el.buyer}</div>
                       <div>{el.seller}</div>
                       <div>{el.price}</div>
@@ -209,10 +207,10 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
               </div>
             </div>
           </div>
+          <IonButton onClick={setShowModal} color="tertiary">
+            Close Modal
+          </IonButton>
         </div>
-        <IonButton onClick={setShowModal} color="tertiary">
-          Close Modal
-        </IonButton>
       </IonContent>
     </IonModal>
   );

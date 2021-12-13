@@ -3,7 +3,7 @@ import "./BreedingResultScore.css";
 
 const BreedingResultScore = ({ BreedingResultScore }) => {
   return (
-    <IonGrid className="container__BeedingResultScore">
+    <IonGrid className="border-4 border-indigo-500/50 rounded-md m-1 p-2">
       <IonRow>
         <IonCol>
           <IonRow>

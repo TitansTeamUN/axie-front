@@ -60,7 +60,7 @@ const MyAxies = () => {
     },
     {
       label: "Option 2",
-      icon: "",
+      icon: "Home",
       slot: "",
       onItemClick: () => {
         console.log("clicked 2");
@@ -84,11 +84,7 @@ const MyAxies = () => {
 
   return (
     <IonPage>
-      <Header
-        menu="menuMyAxies"
-        title="My Axies"
-        menuOptions={demoMenuOptions}
-      />
+      <Header menu="menuMyAxies" title="My Axies" />
       <IonContent fullscreen color="primary">
         <IonSearchbar
           color="light"
@@ -105,7 +101,6 @@ const MyAxies = () => {
                 image={el.image}
                 score={el.score}
                 value={el.value}
-                myAxie={true}
                 breedCount={el.breedCount}
               />
             );

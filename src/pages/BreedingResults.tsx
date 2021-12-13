@@ -53,11 +53,7 @@ const breedingResult = () => {
 
   return (
     <IonPage>
-      <Header
-        menu="menuBreeding"
-        title="Breeding results"
-        menuOptions={demoMenuOptions}
-      />
+      <Header menu="menuBreeding" title="Breeding results" />
       <IonContent fullscreen color="primary">
         <div className="flex flex-col px-6 mt-6">
           <IonGrid style={{ display: "flex", justifyContent: "center" }}>

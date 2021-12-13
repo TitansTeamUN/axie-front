@@ -8,7 +8,7 @@ import {
 import { ellipsisVerticalOutline } from "ionicons/icons";
 import NavBarMenu from "../Basic/NavBarMenu";
 
-const Header = ({ menu, title, menuOptions }) => {
+const Header = ({ menu, title }) => {
   return (
     <>
       <IonHeader>
@@ -24,7 +24,6 @@ const Header = ({ menu, title, menuOptions }) => {
       <NavBarMenu
         contentId="menuContent"
         ionMenuProps={{ side: "end", swipeGesture: false, menuId: menu }}
-        options={menuOptions}
       />
     </>
   );

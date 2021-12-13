@@ -83,40 +83,27 @@ const AxiesSearch = () => {
   return (
     <div>
       <IonPage>
-        <Header
-          menu="menuAxiesSearch"
-          title="Axies search"
-          menuOptions={demoMenuOptions}
-        />
+        <Header menu="menuAxiesSearch" title="Axies search" />
         <IonContent fullscreen color="primary">
-          <IonGrid>
-            <IonRow>
-              <IonSearchbar
-                color="light"
-                onIonChange={(e) => {
-                  setSearch(e.detail.value!);
-                }}
-              />
-            </IonRow>
-          </IonGrid>
-          <IonGrid>
-            <IonRow>
-              {myaxiexArray.map((el) => {
-                return (
-                  <IonCol size="6">
-                    <MyAxiesCard
-                      _id={el._id}
-                      image={el.image}
-                      score={el.score}
-                      value={el.value}
-                      myAxie={false}
-                      breedCount={el.breedCount}
-                    ></MyAxiesCard>
-                  </IonCol>
-                );
-              })}
-            </IonRow>
-          </IonGrid>
+          <IonSearchbar
+            color="light"
+            onIonChange={(e) => {
+              setSearch(e.detail.value!);
+            }}
+          />
+          <div className="grid grid-cols-2">
+            {myaxiexArray.map((el) => {
+              return (
+                <MyAxiesCard
+                  _id={el._id}
+                  image={el.image}
+                  score={el.score}
+                  value={el.value}
+                  breedCount={el.breedCount}
+                />
+              );
+            })}
+          </div>
         </IonContent>
       </IonPage>
     </div>

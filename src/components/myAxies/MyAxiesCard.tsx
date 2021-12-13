@@ -10,15 +10,15 @@ import { useState } from "react";
 import AxieDescription from "../axieDescription/AxieDescription";
 import "./MyAxiesCard.css";
 
-const MyAxiesCard = ({ _id, image, score, value, myAxie, breedCount }) => {
+const MyAxiesCard = ({ _id, image, score, value, breedCount }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleOpen = () => {
-    myAxie ? setShowModal(!showModal) : <></>;
+    setShowModal(!showModal);
   };
 
   const handleClose = () => {
-    myAxie ? setShowModal(!showModal) : <></>;
+    setShowModal(!showModal);
   };
 
   return (
@@ -28,15 +28,11 @@ const MyAxiesCard = ({ _id, image, score, value, myAxie, breedCount }) => {
       id={_id}
     >
       <div className="grid grid-rows-3 justify-items-center items-center">
-        {myAxie ? (
-          <AxieDescription
-            showModal={showModal}
-            setShowModal={handleClose}
-            id={_id}
-          />
-        ) : (
-          <></>
-        )}
+        <AxieDescription
+          showModal={showModal}
+          setShowModal={handleClose}
+          id={_id}
+        />
         <div>
           <p>{_id}</p>
         </div>
