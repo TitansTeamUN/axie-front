@@ -1,42 +1,53 @@
-import {
-  IonButton,
-  IonCol,
-  IonGrid,
-  IonImg,
-  IonPage,
-  IonRow,
-} from "@ionic/react";
+import { IonCol, IonGrid, IonImg, IonRow } from "@ionic/react";
+import { useState } from "react";
+import AxieDescription from "../axieDescription/AxieDescription";
 
-import "./MyAxiesCard.css";
+const MyAxiesCard = ({ _id, image, score, value, breedCount }) => {
+  const [showModal, setShowModal] = useState(false);
 
-const MyAxiesCard = ({ _id, image, score, value, myAxie }) => {
+  const handleOpen = () => {
+    setShowModal(!showModal);
+  };
+
+  const handleClose = () => {
+    setShowModal(!showModal);
+  };
+
   return (
-    <IonGrid className="container__axieCard">
-      <IonRow>
-        <IonCol>
+    <div
+      className="border-2 border-indigo-500/50 rounded-md bg-darkPurpleDarkest m-4 py-2 "
+      onClick={handleOpen}
+      id={_id}
+    >
+      <div className="flex flex-col justify-items-center items-center">
+        <AxieDescription
+          showModal={showModal}
+          setShowModal={handleClose}
+          id={_id}
+        />
+        <div className="border border-black rounded-md px-2 py-1 bg-clReptile">
           <p>{_id}</p>
-        </IonCol>
-      </IonRow>
-      <IonRow>
-        <IonCol size="2">
-          <IonImg src={image}></IonImg>
-        </IonCol>
-      </IonRow>
-      {myAxie ? (
-        <IonRow>
-          <IonCol>
-            <p>{score}</p>
-          </IonCol>
-          <IonCol>
-            <p>{value}</p>
-          </IonCol>
-        </IonRow>
-      ) : (
-        <>
-          <IonButton>Comprar</IonButton>
-        </>
-      )}
-    </IonGrid>
+        </div>
+        <IonGrid className="flex justify-center">
+          <IonRow>
+            <IonCol sizeMd="4" sizeXs="12">
+              <IonImg src={image}></IonImg>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+        <div className="flex flex-col justify-items-center">
+          <div>
+            <p className="text-sm">Score: {score}</p>
+          </div>
+          <div>
+            <p className="text-sm">Price: {value}</p>
+          </div>
+          <div>
+            <p className="text-sm">Breed count: {breedCount}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -7,10 +7,8 @@ import {
   IonPage,
   IonRow,
 } from "@ionic/react";
-
-import BreedingResultScore from "../components/breedingResultScore/BreedingResultScore";
+import Header from "../components/Basic/Header";
 import BreedingResultTable from "../components/breedingResultTable/BreedingResultTable";
-
 
 const breedingResult = () => {
   const breedingResult = {
@@ -29,35 +27,36 @@ const breedingResult = () => {
     breedingResultScore: { Score: "Decent", ScoreArray: [58, 34, 31, 41] },
     geneQuality: "81.29%",
   };
+
   return (
     <IonPage>
-
-      <IonContent fullscreen>
-        <IonGrid style={{ display: "flex", justifyContent: "center" }}>
-          <IonRow style={{ justifyContent: "center" }}>
-            <IonCol size="2">
-              <IonImg src={breedingResult.image}></IonImg>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
-        <BreedingResultTable breedingResults={breedingResult.breedingResult} />
-        <BreedingResultScore
+      <Header menu="menuBreeding" title="Breeding results" />
+      <IonContent fullscreen color="primary">
+        <div className="flex flex-col px-6 mt-6">
+          <IonGrid className="flex justify-center">
+            <IonRow className="flex justify-center">
+              <IonCol size="4">
+                <IonImg src={breedingResult.image}></IonImg>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+          <BreedingResultTable
+            breedingResults={breedingResult.breedingResult}
+          />
+          {/* <BreedingResultScore
           BreedingResultScore={breedingResult.breedingResultScore}
-        />
-        <IonGrid style={{ display: "flex", justifyContent: "center" }}>
-          <IonRow style={{ justifyContent: "center" }}>
-            <IonCol>
-              <p>Gene Quality {breedingResult.geneQuality}</p>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
-        <IonGrid style={{ display: "flex", justifyContent: "center" }}>
-          <IonRow style={{ justifyContent: "center" }}>
-            <IonCol>
-              <IonButton>Breed again</IonButton>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+        /> */}
+          <div className="border-2 border-indigo-500/50 rounded-md my-10">
+            <div className="grid grid-cols-1 justify-items-center rounded-md py-6 bg-sonicSilver">
+              <div>
+                <p>Gene Quality {breedingResult.geneQuality} </p>
+              </div>
+            </div>
+          </div>
+          <IonButton href="/breeding" color="tertiary" className="justify-end">
+            Breed again
+          </IonButton>
+        </div>
       </IonContent>
     </IonPage>
   );

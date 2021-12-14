@@ -52,12 +52,12 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-medium-shade: #301c1f;
   --ion-color-medium-tint: #4a3639;
 
-  --ion-color-light: #757780;
-  --ion-color-light-rgb: 117, 119, 128;
-  --ion-color-light-contrast: #ffffff;
-  --ion-color-light-contrast-rgb: 255, 255, 255;
-  --ion-color-light-shade: #676971;
-  --ion-color-light-tint: #83858d;
+  --ion-color-light: #Fefefe;
+	--ion-color-light-rgb: 254,254,254;
+	--ion-color-light-contrast: #000000;
+	--ion-color-light-contrast-rgb: 0,0,0;
+	--ion-color-light-shade: #e0e0e0;
+	--ion-color-light-tint: #fefefe;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -117,12 +117,12 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-medium-shade: #301c1f;
     --ion-color-medium-tint: #4a3639;
 
-    --ion-color-light: #757780;
-    --ion-color-light-rgb: 117, 119, 128;
-    --ion-color-light-contrast: #ffffff;
-    --ion-color-light-contrast-rgb: 255, 255, 255;
-    --ion-color-light-shade: #676971;
-    --ion-color-light-tint: #83858d;
+    --ion-color-light: #Fefefe; /* almost white */
+    --ion-color-light-rgb: 254,254,254;
+    --ion-color-light-contrast: #000000;
+    --ion-color-light-contrast-rgb: 0,0,0;
+    --ion-color-light-shade: #e0e0e0;
+    --ion-color-light-tint: #fefefe;
   }
 
   /*

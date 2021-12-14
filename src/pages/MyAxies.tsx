@@ -1,11 +1,6 @@
-import {
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonPage,
-  IonRow,
-  IonSearchbar,
-} from "@ionic/react";
+import { IonContent, IonPage, IonSearchbar } from "@ionic/react";
+import { useEffect, useState } from "react";
+import { Header } from "../components/Basic";
 
 import MyAxiesCard from "../components/myAxies/MyAxiesCard";
 
@@ -16,56 +11,72 @@ const MyAxies = () => {
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 7521,
-      value: "$150",
+      value: "Ξ 0.019",
+      breedCount: "1 / 6",
     },
     {
       _id: "#5454654",
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 434,
-      value: "$4",
+      value: "Ξ 0.027",
+      breedCount: "3 / 6",
     },
     {
       _id: "#456456456",
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 43543,
-      value: "$466",
+      value: "Ξ 0.12",
+      breedCount: "0 / 6",
     },
     {
-      _id: "#456456456",
+      _id: "#4564576456",
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 42,
-      value: "$4535",
+      value: "Ξ 0.047",
+      breedCount: "1 / 6",
     },
   ];
 
+  const [search, setSearch] = useState("");
+  const [myaxiexArray, setMyAxiesArray] = useState([] as any);
+
+  useEffect(() => {
+    let aux = [] as any;
+    myAxies.forEach((axie) => {
+      if (axie._id.includes(search)) {
+        aux.push(axie);
+        setMyAxiesArray(aux);
+      }
+    });
+  }, [search]);
+
   return (
     <IonPage>
-      <IonContent fullscreen>
-        <IonGrid>
-          <IonRow>
-            <IonSearchbar></IonSearchbar>
-          </IonRow>
-        </IonGrid>
-        <IonGrid>
-          <IonRow>
-            {myAxies.map((el) => {
-              return (
-                <IonCol size="6">
-                  <MyAxiesCard
-                    _id={el._id}
-                    image={el.image}
-                    score={el.score}
-                    value={el.value}
-                    myAxie={true}
-                  ></MyAxiesCard>
-                </IonCol>
-              );
-            })}
-          </IonRow>
-        </IonGrid>
+      <Header menu="menuMyAxies" title="My Axies" />
+      <IonContent fullscreen color="primary">
+        <IonSearchbar
+          color="light"
+          onIonChange={(e) => {
+            setSearch(e.detail.value!);
+          }}
+        />
+        <div className="grid grid-cols-2">
+          {myaxiexArray.map((axie) => {
+            return (
+              <MyAxiesCard
+                key={axie._id}
+                _id={axie._id}
+                image={axie.image}
+                score={axie.score}
+                value={axie.value}
+                breedCount={axie.breedCount}
+              />
+            );
+          })}
+        </div>
       </IonContent>
     </IonPage>
   );

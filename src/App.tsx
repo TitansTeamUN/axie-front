@@ -37,6 +37,7 @@ import AxiesSearch from "./pages/AxiesSearch";
 import Breeding from "./pages/Breeding";
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
+import News from "./pages/News";
 
 /* different styles */
 import "./theme/miscelaneous.css";
@@ -46,13 +47,13 @@ const App = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
+          <Route exact path="/breedingResults">
             <BreedingResults />
           </Route>
-          <Route exact path="/tab2">
+          <Route exact path="/myAxies">
             <MyAxies />
           </Route>
-          <Route path="/tab3">
+          <Route path="/axiesSearch">
             <AxiesSearch />
           </Route>
           <Route path="/menu">
@@ -60,6 +61,9 @@ const App = () => (
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/news">
+            <News />
           </Route>
           <Route path="/breeding">
             <Breeding />

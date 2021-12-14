@@ -1,42 +1,33 @@
-import { IonCol, IonGrid, IonRow } from "@ionic/react";
-import "./BreedingResultTable.css";
-
 const BreedingResultTable = ({ breedingResults }) => {
   return (
-    <>
-      <IonGrid className="container__BeedingResultTable">
-        <IonRow>
-          <IonCol>
-            <IonRow>
-              <IonCol size="4">
-                <p>Dominante</p>
-              </IonCol>
-              <IonCol size="4">
-                <p>Recesivo 1</p>
-              </IonCol>
-              <IonCol size="4">
-                <p>Recesivo 2</p>
-              </IonCol>
-            </IonRow>
-            {breedingResults.map((el) => {
-              return (
-                <IonRow>
-                  <IonCol>
-                    <p>{el[0]}</p>
-                  </IonCol>
-                  <IonCol>
-                    <p>{el[1]}</p>
-                  </IonCol>
-                  <IonCol>
-                    <p>{el[2]}</p>
-                  </IonCol>
-                </IonRow>
-              );
-            })}
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-    </>
+    <div className="border-2 border-indigo-500/50 rounded-md bg-darkPurpleDarkest">
+      <div className="grid grid-cols-3 justify-items-center py-6 border-t border-white">
+        <div>
+          <p>D</p>
+        </div>
+        <div>
+          <p>R1</p>
+        </div>
+        <div>
+          <p>R2</p>
+        </div>
+      </div>
+      {breedingResults.map((geneParts) => {
+        return (
+          <div className="grid grid-cols-3 justify-items-center py-6 border-t border-white">
+            <div>
+              <p>{geneParts[0]}</p>
+            </div>
+            <div>
+              <p>{geneParts[1]}</p>
+            </div>
+            <div>
+              <p>{geneParts[2]}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

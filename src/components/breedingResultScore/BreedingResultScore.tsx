@@ -1,22 +1,31 @@
 import { IonCol, IonGrid, IonRow } from "@ionic/react";
-import "./BreedingResultScore.css";
 
 const BreedingResultScore = ({ BreedingResultScore }) => {
   return (
-    <IonGrid className="container__BeedingResultScore">
+    <IonGrid className="border-2 border-indigo-500/50 rounded-md m-1 p-2 bg-darkPurpleDarkest text-sm">
       <IonRow>
         <IonCol>
           <IonRow>
             <p>Meta Score: {BreedingResultScore.Score}</p>
           </IonRow>
+        
           <IonRow>
-            <p>Stats</p>
-          </IonRow>
-          <IonRow>
-            {BreedingResultScore.ScoreArray.map((el) => {
+            {BreedingResultScore.ScoreArray.map((stat, index) => {
               return (
                 <IonCol>
-                  <p>{el}</p>
+                  {index === 0 && (
+                    <img src="./assets/icon/axie-stats/health.svg" />
+                  )}
+                  {index === 1 && (
+                    <img src="./assets/icon/axie-stats/speed.svg" />
+                  )}
+                  {index === 2 && (
+                    <img src="./assets/icon/axie-stats/skill.svg" />
+                  )}
+                  {index === 3 && (
+                    <img src="./assets/icon/axie-stats/morale.svg" />
+                  )}
+                  <p className="text-xs text-center mt-1">{stat}</p>
                 </IonCol>
               );
             })}
