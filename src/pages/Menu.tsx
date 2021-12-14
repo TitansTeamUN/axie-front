@@ -3,16 +3,17 @@ import { IonContent, IonPage } from "@ionic/react";
 import { ButtonMenuContainer } from "../components/Basic";
 
 const Menu = () => {
+  
   return (
-    <IonPage>
-      <IonContent className="w-full h-1/6" color="primary">
+    <IonContent color="primary">
+      <div id="logo" className="w-full h-2/6" color="primary">
         <img
           src="./assets/img/logo.jpg"
           alt="Logo"
           className="w-full mx-auto my-auto"
         />
-      </IonContent>
-      <IonContent className="align-middle space-y-6 h-5/6 py-14" color="primary">
+      </div>
+      <div className="align-middle space-y-12 h-4/6 py-6">
         <ButtonMenuContainer name="My Axies" link="/myAxies"></ButtonMenuContainer>
 
         <ButtonMenuContainer
@@ -28,8 +29,8 @@ const Menu = () => {
         <ButtonMenuContainer name="Breeding" link="/breeding"></ButtonMenuContainer>
 
         <ButtonMenuContainer name="News" link="/news"></ButtonMenuContainer>
-      </IonContent>
-    </IonPage>
+      </div>
+    </IonContent>
   );
 };
 

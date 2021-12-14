@@ -11,7 +11,7 @@ const ButtonMenuContainer = ({ name, link }) => {
         to={{
           pathname: link,
         }}
-        className="text-black"
+        className="text-black font-mono"
       >
         {name}
       </Link>
