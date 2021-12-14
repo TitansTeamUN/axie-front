@@ -8,8 +8,6 @@ import {
   IonRow,
 } from "@ionic/react";
 import Header from "../components/Basic/Header";
-
-import BreedingResultScore from "../components/breedingResultScore/BreedingResultScore";
 import BreedingResultTable from "../components/breedingResultTable/BreedingResultTable";
 
 const breedingResult = () => {
@@ -30,34 +28,13 @@ const breedingResult = () => {
     geneQuality: "81.29%",
   };
 
-  const demoMenuOptions = [
-    {
-      label: "Option 1",
-      icon: "",
-      slot: "",
-      onItemClick: () => {
-        console.log("clicked 1");
-      },
-      rippleEffect: true,
-    },
-    {
-      label: "Option 2",
-      icon: "",
-      slot: "",
-      onItemClick: () => {
-        console.log("clicked 2");
-      },
-      rippleEffect: true,
-    },
-  ];
-
   return (
     <IonPage>
       <Header menu="menuBreeding" title="Breeding results" />
       <IonContent fullscreen color="primary">
         <div className="flex flex-col px-6 mt-6">
-          <IonGrid style={{ display: "flex", justifyContent: "center" }}>
-            <IonRow style={{ justifyContent: "center" }}>
+          <IonGrid className="flex justify-center">
+            <IonRow className="flex justify-center">
               <IonCol size="4">
                 <IonImg src={breedingResult.image}></IonImg>
               </IonCol>
@@ -69,8 +46,8 @@ const breedingResult = () => {
           {/* <BreedingResultScore
           BreedingResultScore={breedingResult.breedingResultScore}
         /> */}
-          <div className="border-4 border-indigo-500/50 rounded-md my-10">
-            <div className="grid grid-cols-1 justify-items-center py-6">
+          <div className="border-2 border-indigo-500/50 rounded-md my-10">
+            <div className="grid grid-cols-1 justify-items-center rounded-md py-6 bg-sonicSilver">
               <div>
                 <p>Gene Quality {breedingResult.geneQuality} </p>
               </div>

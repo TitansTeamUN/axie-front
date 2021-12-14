@@ -1,16 +1,7 @@
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonMenuButton,
-  IonIcon,
-  IonSearchbar,
-} from "@ionic/react";
-import { document, ellipsisVerticalOutline } from "ionicons/icons";
+import { IonContent, IonHeader, IonPage, IonSearchbar } from "@ionic/react";
+import { document } from "ionicons/icons";
 
-import { NavBarMenu } from "../components/Basic";
+import { Header } from "../components/Basic";
 import { ArticleOverview } from "../components/news";
 
 const News = () => {
@@ -60,16 +51,7 @@ const News = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar color="secondary">
-          <IonMenuButton slot="end" menu="main">
-            <IonIcon icon={ellipsisVerticalOutline}></IonIcon>
-          </IonMenuButton>
-          <IonTitle className="ion-text-center" size="large">
-            News
-          </IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header menu="menu" title="Breeding" />
       <IonHeader>
         <div className="w-full bg-darkPurpleSecondary border-t border-black">
           <IonSearchbar
@@ -81,11 +63,7 @@ const News = () => {
           ></IonSearchbar>
         </div>
       </IonHeader>
-      <NavBarMenu
-        contentId="menuContent"
-        ionMenuProps={{ side: "end", swipeGesture: false, menuId: "main" }}
-        options={demoMenuOptions}
-      />
+
       <IonContent fullscreen color="primary">
         {articlesDemo.map((article, index) => {
           return (

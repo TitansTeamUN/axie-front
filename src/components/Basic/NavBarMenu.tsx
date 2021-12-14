@@ -34,7 +34,7 @@ const optionsDemo = [
     href: "/cardExplorer",
   },
   {
-    label: "Breeding",
+    label: "Breeding Simulator",
     icon: "", //use a const  from ionicons or a custom path
     slot: "",
     onItemClick: () => {}, //a function to handle click on option

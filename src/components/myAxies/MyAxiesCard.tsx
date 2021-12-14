@@ -1,14 +1,6 @@
-import {
-  IonButton,
-  IonCol,
-  IonGrid,
-  IonImg,
-  IonModal,
-  IonRow,
-} from "@ionic/react";
+import { IonCol, IonGrid, IonImg, IonRow } from "@ionic/react";
 import { useState } from "react";
 import AxieDescription from "../axieDescription/AxieDescription";
-import "./MyAxiesCard.css";
 
 const MyAxiesCard = ({ _id, image, score, value, breedCount }) => {
   const [showModal, setShowModal] = useState(false);
@@ -23,35 +15,35 @@ const MyAxiesCard = ({ _id, image, score, value, breedCount }) => {
 
   return (
     <div
-      className="border-4 border-indigo-500/50 rounded-md m-6 pt-2"
+      className="border-2 border-indigo-500/50 rounded-md bg-darkPurpleDarkest m-4 py-2 "
       onClick={handleOpen}
       id={_id}
     >
-      <div className="grid grid-rows-3 justify-items-center items-center">
+      <div className="flex flex-col justify-items-center items-center">
         <AxieDescription
           showModal={showModal}
           setShowModal={handleClose}
           id={_id}
         />
-        <div>
+        <div className="border border-black rounded-md px-2 py-1 bg-clReptile">
           <p>{_id}</p>
         </div>
-        <IonGrid style={{ display: "flex", justifyContent: "center" }}>
-          <IonRow style={{ justifyContent: "center" }}>
+        <IonGrid className="flex justify-center">
+          <IonRow>
             <IonCol sizeMd="4" sizeXs="12">
               <IonImg src={image}></IonImg>
             </IonCol>
           </IonRow>
         </IonGrid>
-        <div className="grid grid-rows-3 justify-items-center">
+        <div className="flex flex-col justify-items-center">
           <div>
-            <p>Score: {score}</p>
+            <p className="text-sm">Score: {score}</p>
           </div>
           <div>
-            <p>Price: {value}</p>
+            <p className="text-sm">Price: {value}</p>
           </div>
           <div>
-            <p>Breed count: {breedCount}</p>
+            <p className="text-sm">Breed count: {breedCount}</p>
           </div>
         </div>
       </div>

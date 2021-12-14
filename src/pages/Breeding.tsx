@@ -6,7 +6,7 @@ import {
   IonLabel,
 } from "@ionic/react";
 
-import Header from "../components/Basic/Header";
+import { Header } from "../components/Basic";
 import { getAxieImgFromId } from "../utils";
 
 const Breeding = () => {
@@ -33,7 +33,7 @@ const Breeding = () => {
 
   return (
     <IonPage>
-      <Header menu="menu" title="Breeding" />
+      <Header menu="menu" title="Breeding Simulator" />
       <IonContent fullscreen color="primary">
         <div className="flex flex-col px-6 mt-6">
           <div className="flex">

@@ -1,45 +1,17 @@
-import {
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonPage,
-  IonRow,
-  IonSearchbar,
-} from "@ionic/react";
+import { IonContent, IonPage, IonSearchbar } from "@ionic/react";
 import { useEffect, useState } from "react";
 import Header from "../components/Basic/Header";
 
 import MyAxiesCard from "../components/myAxies/MyAxiesCard";
 
 const AxiesSearch = () => {
-  const demoMenuOptions = [
-    {
-      label: "Option 1",
-      icon: "",
-      slot: "",
-      onItemClick: () => {
-        console.log("clicked 1");
-      },
-      rippleEffect: true,
-    },
-    {
-      label: "Option 2",
-      icon: "",
-      slot: "",
-      onItemClick: () => {
-        console.log("clicked 2");
-      },
-      rippleEffect: true,
-    },
-  ];
-
   const myAxies = [
     {
       _id: "#9854654",
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 7521,
-      value: "$150",
+      value: "Ξ 0.019",
       breedCount: 0,
     },
     {
@@ -47,7 +19,7 @@ const AxiesSearch = () => {
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 434,
-      value: "$4",
+      value: "Ξ 0.120",
       breedCount: 0,
     },
     {
@@ -55,7 +27,7 @@ const AxiesSearch = () => {
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 43543,
-      value: "$466",
+      value: "Ξ 0.024",
       breedCount: 0,
     },
     {
@@ -63,7 +35,7 @@ const AxiesSearch = () => {
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 42,
-      value: "$4535",
+      value: "Ξ 1.56",
       breedCount: 0,
     },
   ];

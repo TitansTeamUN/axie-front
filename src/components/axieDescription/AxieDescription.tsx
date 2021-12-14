@@ -1,25 +1,27 @@
 import { IonButton, IonContent, IonModal } from "@ionic/react";
+import { getAxieImgFromId } from "../../utils";
+
 import AxieCardDescription from "../axieCardDescription/AxieCardDescription";
 import BreedingResultScore from "../breedingResultScore/BreedingResultScore";
-import MyAxiesCard from "../myAxies/MyAxiesCard";
 
 const AxieDescription = ({ showModal, setShowModal, id }) => {
+  const axie = { id: "45456", class: "beast" };
   const parents = [
     {
       _id: "#9854654",
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 7521,
-      value: "$150",
-      breedCount: 0,
+      value: "Ξ 0.027",
+      breedCount: "0/6",
     },
     {
       _id: "#5454654",
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 434,
-      value: "$4",
-      breedCount: 0,
+      value: "Ξ 0.045",
+      breedCount: "1/6",
     },
   ];
   const children = [
@@ -28,16 +30,16 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 7521,
-      value: "$150",
-      breedCount: 0,
+      value: "Ξ 0.149",
+      breedCount: "2/6",
     },
     {
       _id: "#5454654",
       image:
         "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
       score: 434,
-      value: "$4",
-      breedCount: 0,
+      value: "Ξ 0.325",
+      breedCount: "1/6",
     },
   ];
   const abilities = {
@@ -98,10 +100,10 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
   };
 
   const salesHistory = [
-    { buyer: "Ah21", seller: "af56", price: "$15USD" },
-    { buyer: "afy6", seller: "oh57", price: "$18USD" },
-    { buyer: "afasday6", seller: "oeweh57", price: "$17USD" },
-    { buyer: "afaway6", seller: "ohaw57", price: "$40USD" },
+    { buyer: "Ah21", seller: "af56", price: "0.043 Ξ " },
+    { buyer: "afy6", seller: "oh57", price: " 0.054 Ξ " },
+    { buyer: "afasday6", seller: "oeweh57", price: "0.027 Ξ " },
+    { buyer: "afaway6", seller: "ohaw57", price: "0.152 Ξ " },
   ];
 
   const bodyParts = {
@@ -116,10 +118,20 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
   return (
     <IonModal isOpen={showModal} key={id}>
       <IonContent fullscreen color="primary">
-        <div className="grid justify-items-center p-8">
-          <div>
-            <p>About</p>
+        <div className="grid justify-items-center p-6">
+          <div className="border border-white rounded-md p-2 bg-darkPurpleDarkest">
+            <div className="flex justify-center items-center text-xl">
+              <img
+                width={32}
+                src={`./assets/icon/axie-classes/${axie.class}.svg`}
+              />
+              <p className="ml-4">{`#${axie.id}`}</p>
+            </div>
           </div>
+          <div>
+            <img width={256} src={getAxieImgFromId(45456)} />
+          </div>
+
           <div>
             <p>Stats</p>
             <BreedingResultScore
@@ -129,44 +141,55 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
               }}
             />
           </div>
-          <div>
+          <div className="w-full">
             <p>Body parts</p>
-            <div className="border-4 border-indigo-500/50 rounded-md m-1 p-2">
-              <div className="grid grid-cols-2 justify-items-center">
-                <div>
-                  <p>Eyes: {bodyParts.eyes}</p>
+            <div className="border-2 border-indigo-500/50 rounded-md bg-darkPurpleDarkest m-1 p-2">
+              <div className="flex justify-between">
+                <div className=" flex flex-col items-start w-1/2">
+                  <div className="flex items-center">
+                    <img width={36} src="./assets/icon/axie-parts/eyes.svg" />
+                    <p className="text-sm ml-2"> {bodyParts.eyes}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img width={36} src="./assets/icon/axie-parts/ears.svg" />
+                    <p className="text-sm ml-2"> {bodyParts.ears}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img width={36} src="./assets/icon/axie-parts/back.svg" />
+                    <p className="text-sm ml-2"> {bodyParts.back}</p>
+                  </div>
                 </div>
-                <div>
-                  <p>Ears: {bodyParts.ears}</p>
-                </div>
-                <div>
-                  <p>Back: {bodyParts.back}</p>
-                </div>
-                <div>
-                  <p>Mouth: {bodyParts.mouth}</p>
-                </div>
-                <div>
-                  <p>Horns: {bodyParts.horns}</p>
-                </div>
-                <div>
-                  <p>Tail: {bodyParts.tail}</p>
+                <div className=" flex flex-col items-start w-1/2">
+                  <div className="flex items-center">
+                    <img width={36} src="./assets/icon/axie-parts/mouth.svg" />
+                    <p className="text-sm ml-2"> {bodyParts.mouth}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img width={36} src="./assets/icon/axie-parts/horn.svg" />
+                    <p className="text-sm ml-2">{bodyParts.horns}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <img width={36} src="./assets/icon/axie-parts/tail.svg" />
+                    <p className="text-sm ml-2"> {bodyParts.tail}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div className="w-full">
             <p>Abilities</p>
-            <div className="border-4 border-indigo-500/50 rounded-md m-1 p-2"></div>
+            <div className="border-2 border-indigo-500/50 rounded-md m-1 p-2 bg-darkPurpleDarkest w-full h-20"></div>
+            {/* edit */}
           </div>
           <div>
             <p>Parents</p>
             <div className="grid grid-cols-2 justify-items-center">
-              {parents.map((el) => {
+              {parents.map((axie) => {
                 return (
                   <AxieCardDescription
-                    key={el._id}
-                    _id={el._id}
-                    image={el.image}
+                    key={axie._id}
+                    _id={axie._id}
+                    image={axie.image}
                   />
                 );
               })}
@@ -175,32 +198,32 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
           <div>
             <p>Children</p>
             <div className="grid grid-cols-2 justify-items-center">
-              {children.map((el) => {
+              {children.map((axie) => {
                 return (
                   <AxieCardDescription
-                    key={el._id}
-                    _id={el._id}
-                    image={el.image}
+                    key={axie._id}
+                    _id={axie._id}
+                    image={axie.image}
                   />
                 );
               })}
             </div>
           </div>
-          <div>
+          <div className="w-full">
             <p>Sales history</p>
-            <div className="border-4 border-indigo-500/50 rounded-md m-1 p-2">
+            <div className="border-2 border-indigo-500/50 rounded-md bg-darkPurpleDarkest w-full m-1 p-2">
               <div className="grid grid-cols-3 justify-items-center">
                 <p>Buyer</p>
                 <p>Seller</p>
                 <p>Price</p>
               </div>
               <div className="grid grid-rows-3 justify-items-center">
-                {salesHistory.map((el) => {
+                {salesHistory.map((sale) => {
                   return (
-                    <div className="grid grid-cols-3 justify-items-center p-2">
-                      <div>{el.buyer}</div>
-                      <div>{el.seller}</div>
-                      <div>{el.price}</div>
+                    <div className="grid grid-cols-3 justify-items-center w-full p-2 text-sm">
+                      <div>{sale.buyer}</div>
+                      <div>{sale.seller}</div>
+                      <div>{sale.price}</div>
                     </div>
                   );
                 })}
