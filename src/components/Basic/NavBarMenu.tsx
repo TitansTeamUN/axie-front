@@ -31,7 +31,7 @@ const optionsDemo = [
     slot: "",
     onItemClick: () => {}, //a function to handle click on option
     rippleEffect: true,
-    href: "/cardExplorer",
+    href: "/card-explorer",
   },
   {
     label: "Breeding Simulator",

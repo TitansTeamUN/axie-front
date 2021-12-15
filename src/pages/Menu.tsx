@@ -1,11 +1,27 @@
-import { IonContent, IonPage } from "@ionic/react";
+import {
+  IonContent,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonPage,
+} from "@ionic/react";
 
 import { ButtonMenuContainer } from "../components/Basic";
 
+// we should implement this using navigation (IonNav)
 const Menu = () => {
   return (
     <IonContent color="primary">
-      <div id="logo" className="flex justify-center w-full font-cursive text" color="primary">Menu</div>
+      <IonHeader>
+        <IonToolbar color="secondary">
+          <IonTitle
+            className="ion-text-center font-cursive text-2xl"
+            size="large"
+          >
+            Menu
+          </IonTitle>
+        </IonToolbar>
+      </IonHeader>
 
       <div className=" flex flex-col items-center space-y-12 h-4/6 py-6">
         <ButtonMenuContainer
@@ -20,7 +36,7 @@ const Menu = () => {
 
         <ButtonMenuContainer
           name="Card explorer"
-          link="/menu"
+          link="/card-explorer"
         ></ButtonMenuContainer>
 
         <ButtonMenuContainer

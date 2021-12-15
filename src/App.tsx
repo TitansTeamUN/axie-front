@@ -38,6 +38,7 @@ import Breeding from "./pages/Breeding";
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
 import News from "./pages/News";
+import CardExplorer from "./pages/CardExplorer";
 
 /* different styles */
 import "./theme/miscelaneous.css";
@@ -67,6 +68,9 @@ const App = () => (
           </Route>
           <Route path="/breeding">
             <Breeding />
+          </Route>
+          <Route path="/card-explorer">
+            <CardExplorer />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />

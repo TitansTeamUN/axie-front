@@ -3,9 +3,10 @@ import { getAxieImgFromId } from "../../utils";
 
 import AxieCardDescription from "../axieCardDescription/AxieCardDescription";
 import BreedingResultScore from "../breedingResultScore/BreedingResultScore";
+import { Card } from "../cardExplorer";
 
 const AxieDescription = ({ showModal, setShowModal, id }) => {
-  const axie = { id: "45456", class: "beast" };
+  const axie = { id: "7632279", class: "aquatic" };
   const parents = [
     {
       _id: "#9854654",
@@ -43,23 +44,23 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
     },
   ];
   const abilities = {
-    back: {
-      name: "Shelter",
-      alias: "Hermit",
+    back:  {
+      name: "Scale Dart",
+      alias: "Blue Moon",
       energy: "1",
-      attack: "0",
-      defense: "115",
-      description: "Disable critical strikes on this Axie during this round.",
-      attackType: "Melee",
+      attack: "120",
+      defense: "30",
+      description: "Draw a card if target is in Last Stand.",
+      attackType: "Ranged",
       class: "Aquatic",
       partType: "Back",
       imgUrl:
-        "https://storage.googleapis.com/axie-cdn/game/cards/base/aquatic-back-02.png",
+        "https://storage.googleapis.com/axie-cdn/game/cards/base/aquatic-back-04.png",
     },
     tail: {
       name: "Tail Slap",
       alias: "Nimo",
-      energy: "1",
+      energy: "0",
       attack: "20",
       defense: "0",
       description: "Gain 1 energy when comboed with another card.",
@@ -107,12 +108,12 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
   ];
 
   const bodyParts = {
-    mouth: "Tiny Turtle",
-    eyes: "Gero",
-    ears: "Leafy",
-    back: "Timber",
-    tail: "Thorny Caterpillar",
-    horns: "Lagging",
+    mouth: "Risky Fish",
+    eyes: "Clear",
+    ears: "Nyan",
+    back: "Blue Moon",
+    tail: "Nimo",
+    horns: "Anemone",
   };
 
   return (
@@ -129,7 +130,7 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
             </div>
           </div>
           <div>
-            <img width={256} src={getAxieImgFromId(45456)} />
+            <img width={256} src={getAxieImgFromId(7632279)} />
           </div>
 
           <div>
@@ -137,7 +138,7 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
             <BreedingResultScore
               BreedingResultScore={{
                 Score: "Decent",
-                ScoreArray: [58, 34, 31, 41],
+                ScoreArray: [44, 55, 35, 30],
               }}
             />
           </div>
@@ -176,10 +177,46 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
               </div>
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full mt-2">
             <p>Abilities</p>
-            <div className="border-2 border-indigo-500/50 rounded-md m-1 p-2 bg-darkPurpleDarkest w-full h-20"></div>
-            {/* edit */}
+            <div className="-indigo-500/50 m-1 p-2  grid grid-cols-2 w-full ">
+              <Card
+                size="small"
+                attack={abilities.back.attack}
+                defense={abilities.back.defense}
+                description={abilities.back.description}
+                energy={abilities.back.energy}
+                imgUrl={abilities.back.imgUrl}
+                name={abilities.back.name}
+              />
+              <Card
+                size="small"
+                attack={abilities.mouth.attack}
+                defense={abilities.mouth.defense}
+                description={abilities.mouth.description}
+                energy={abilities.mouth.energy}
+                imgUrl={abilities.mouth.imgUrl}
+                name={abilities.mouth.name}
+              />
+              <Card
+                size="small"
+                attack={abilities.horns.attack}
+                defense={abilities.horns.defense}
+                description={abilities.horns.description}
+                energy={abilities.horns.energy}
+                imgUrl={abilities.horns.imgUrl}
+                name={abilities.horns.name}
+              />
+              <Card
+                size="small"
+                attack={abilities.tail.attack}
+                defense={abilities.tail.defense}
+                description={abilities.tail.description}
+                energy={abilities.tail.energy}
+                imgUrl={abilities.tail.imgUrl}
+                name={abilities.tail.name}
+              />
+            </div>
           </div>
           <div>
             <p>Parents</p>

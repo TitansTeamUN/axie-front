@@ -26,6 +26,16 @@ module.exports = {
       },
       fontFamily: {
         cursive: ["Luckiest Guy"],
+        cursiveTwo: ["Changa One"],
+      },
+
+      fontSize: {
+        xxs: [
+          "0.58rem",
+          {
+            lineHeight: "0.75rem",
+          },
+        ],
       },
     },
   },

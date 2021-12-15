@@ -16,7 +16,7 @@ const Header = ({ menu, title }) => {
           <IonMenuButton slot="end" menu={menu}>
             <IonIcon icon={ellipsisVerticalOutline}></IonIcon>
           </IonMenuButton>
-          <IonTitle className="ion-text-center" size="large">
+          <IonTitle className="ion-text-center text-2xl font-cursive" size="large">
             {title}
           </IonTitle>
         </IonToolbar>

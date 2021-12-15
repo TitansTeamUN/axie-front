@@ -51,7 +51,7 @@ const News = () => {
 
   return (
     <IonPage>
-      <Header menu="menu" title="Breeding" />
+      <Header menu="menu" title="News" />
       <IonHeader>
         <div className="w-full bg-darkPurpleSecondary border-t border-black">
           <IonSearchbar
