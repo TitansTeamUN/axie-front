@@ -5,29 +5,31 @@ import {
   IonTitle,
   IonInput,
   IonButton,
+  IonIcon,
 } from "@ionic/react";
+
+import { logoGoogle, logoFacebook } from "ionicons/icons";
 
 const login = () => {
   return (
     <IonPage>
-      <IonContent className="h-1/6 align-middle py-2 text-center"
-        color="primary"
-      >
-        <IonTitle className="text-3xl my-auto py-auto h-full">
-          Axie tools
-        </IonTitle>
-      </IonContent>
-      <IonContent className="place-items-center h-1/6" color="primary">
-        <img
-          src="./assets/img/logo.jpg"
-          className="w-3/4 content-center mx-auto"
-          alt="Logo"
-        />
-      </IonContent>
+      <IonContent color="primary" fullscreen>
+        <div className="flex flex-col items-center">
+          <img
+            src="./assets/img/axie-infinity-logo.svg"
+            className="w-3/4 h-48"
+            alt="Logo"
+          />
+          <h1 className="font-cursive text-4xl absolute mt-36 text-greenSheen">
+            Tools
+          </h1>
+        </div>
+        <div className="flex flex-col items-center">
+          <img src="./assets/img/axie-home-logo.png" className="w-32 mt-4 mb-10" />
+        </div>
 
-      <IonContent className="align-middle  h-4/6" color="primary">
-        <form action="/Menu">
-          <div className="w-1/2 mx-auto space-y-4">
+        <form action="/Menu" className="flex justify-center w-full px-8">
+          <div className="w-full space-y-4">
             <div className="bg-white rounded-md w-full">
               <IonInput
                 type="text"
@@ -45,10 +47,32 @@ const login = () => {
                 className="text-black text-center"
               ></IonInput>
             </div>
-            <div className="text-center">
-              <IonButton color="tertiary" type="submit" className="justify-end">
+            <div className="text-center w-full">
+              <IonButton
+                color="tertiary"
+                type="submit"
+                className="w-full text-lg mt-2"
+              >
                 Login
               </IonButton>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="text-lg">or login with:</div>
+              <div className="flex">
+                <div>
+                  <IonIcon
+                    className="text-6xl m-4"
+                    icon={logoFacebook}
+                  ></IonIcon>
+                </div>
+                <div>
+                  <IonIcon className="text-6xl m-4" icon={logoGoogle}></IonIcon>
+                </div>
+              </div>
+              <div className="text-xs font-thin font-sans text-justify">
+                All product and company names are trademarks™ or registered®
+                trademarks of their respective holders.
+              </div>
             </div>
           </div>
         </form>

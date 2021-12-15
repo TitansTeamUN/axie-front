@@ -24,6 +24,9 @@ module.exports = {
         clDusk: "#beceff",
         clMech: "#c6bdd4",
       },
+      fontFamily: {
+        cursive: ["Luckiest Guy"],
+      },
     },
   },
   variants: {
