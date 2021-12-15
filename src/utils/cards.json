@@ -1046,6 +1046,18 @@
       "class": "Plant",
       "partType": "Tail",
       "imgUrl": "https://storage.googleapis.com/axie-cdn/game/cards/base/plant-tail-12.png"
+    },
+    {
+      "name": "Sticky Goo",
+      "alias": "Snail Shell",
+      "energy": "1",
+      "attack": "40",
+      "defense": "60",
+      "description": "Stun attacker if this Axie’s shield breaks. Can only trigger once per round.",
+      "attackType": "Melee",
+      "class": "Bug",
+      "partType": "Back",
+      "imgUrl": "https://storage.googleapis.com/axie-cdn/game/cards/base/bug-back-02.png"
     }
   ]
 }
