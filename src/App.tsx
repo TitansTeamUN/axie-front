@@ -39,6 +39,7 @@ import Menu from "./pages/Menu";
 import Home from "./pages/Home";
 import News from "./pages/News";
 import CardExplorer from "./pages/CardExplorer";
+import ScholarshipCalculator from "./pages/ScholarshipCalculator";
 
 /* different styles */
 import "./theme/miscelaneous.css";
@@ -62,6 +63,9 @@ const App = () => (
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/scholar-calc">
+            <ScholarshipCalculator />
           </Route>
           <Route path="/news">
             <News />

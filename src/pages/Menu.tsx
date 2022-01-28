@@ -44,6 +44,8 @@ const Menu = () => {
           link="/breeding"
         ></ButtonMenuContainer>
 
+        <ButtonMenuContainer name="Scholarship calculator" link="/scholar-calc"></ButtonMenuContainer>
+
         <ButtonMenuContainer name="News" link="/news"></ButtonMenuContainer>
       </div>
     </IonContent>
