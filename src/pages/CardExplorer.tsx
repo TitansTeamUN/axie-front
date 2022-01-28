@@ -14,7 +14,8 @@ const CardExplorer = () => {
         <IonContent fullscreen color="primary">
           <div className="grid grid-cols-2">
             {cards.map((card, index) => {
-              if (index < 8) //only show 6 cards
+              if (index < 8)
+                //only show 6 cards
                 return (
                   <Card
                     name={card.name}
