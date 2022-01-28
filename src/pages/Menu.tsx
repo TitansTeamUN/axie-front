@@ -27,7 +27,9 @@ const Menu = () => {
 
         <ButtonMenuContainer name="Breeding" link="/tab2"></ButtonMenuContainer>
 
-        <ButtonMenuContainer name="News" link="/tab2"></ButtonMenuContainer>
+        <ButtonMenuContainer name="Scholarship calculator" link="/scholar-calc"></ButtonMenuContainer>
+
+        <ButtonMenuContainer name="News" link="/news"></ButtonMenuContainer>
       </div>
     </IonPage>
   );

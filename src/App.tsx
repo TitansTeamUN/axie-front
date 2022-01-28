@@ -37,7 +37,9 @@ import AxiesSearch from "./pages/AxiesSearch";
 import Breeding from "./pages/Breeding";
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+import News from "./pages/News";
+import CardExplorer from "./pages/CardExplorer";
+import ScholarshipCalculator from "./pages/ScholarshipCalculator";
 
 /* different styles */
 import "./theme/miscelaneous.css";
@@ -61,6 +63,12 @@ const App = () => (
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/scholar-calc">
+            <ScholarshipCalculator />
+          </Route>
+          <Route path="/news">
+            <News />
           </Route>
           <Route path="/breeding">
             <Breeding />
