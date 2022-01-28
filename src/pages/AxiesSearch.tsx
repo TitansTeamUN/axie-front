@@ -71,6 +71,7 @@ const AxiesSearch = () => {
                   image={el.image}
                   score={el.score}
                   value={el.value}
+                  axieClass={"Reptile"}
                   breedCount={el.breedCount}
                 />
               );
