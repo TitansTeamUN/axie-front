@@ -44,7 +44,7 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
     },
   ];
   const abilities = {
-    back: {
+    back:  {
       name: "Scale Dart",
       alias: "Blue Moon",
       energy: "1",
@@ -255,12 +255,9 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
                 <p>Price</p>
               </div>
               <div className="grid grid-rows-3 justify-items-center">
-                {salesHistory.map((sale, index) => {
+                {salesHistory.map((sale) => {
                   return (
-                    <div
-                      key={index}
-                      className="grid grid-cols-3 justify-items-center w-full p-2 text-sm"
-                    >
+                    <div className="grid grid-cols-3 justify-items-center w-full p-2 text-sm">
                       <div>{sale.buyer}</div>
                       <div>{sale.seller}</div>
                       <div>{sale.price}</div>

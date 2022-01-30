@@ -2,7 +2,7 @@ import { IonCol, IonGrid, IonImg, IonRow } from "@ionic/react";
 import { useState } from "react";
 import AxieDescription from "../axieDescription/AxieDescription";
 
-const MyAxiesCard = ({ _id, image, score, value, breedCount, axieClass }) => {
+const MyAxiesCard = ({ _id, image, score, value, breedCount }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleOpen = () => {
@@ -25,10 +25,8 @@ const MyAxiesCard = ({ _id, image, score, value, breedCount, axieClass }) => {
           setShowModal={handleClose}
           id={_id}
         />
-        <div
-          className={`border border-black rounded-md px-2 py-1 bg-cl${axieClass}`}
-        >
-          <p>{`# ${_id}`}</p>
+        <div className="border border-black rounded-md px-2 py-1 bg-clReptile">
+          <p>{_id}</p>
         </div>
         <IonGrid className="flex justify-center">
           <IonRow>
@@ -41,11 +39,9 @@ const MyAxiesCard = ({ _id, image, score, value, breedCount, axieClass }) => {
           <div>
             <p className="text-sm">Score: {score}</p>
           </div>
-          {value && (
-            <div>
-              <p className="text-sm">Price: {`$${value}`}</p>
-            </div>
-          )}
+          <div>
+            <p className="text-sm">Price: {value}</p>
+          </div>
           <div>
             <p className="text-sm">Breed count: {breedCount}</p>
           </div>
