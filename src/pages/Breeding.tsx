@@ -11,8 +11,8 @@ import { getAxieImgFromId } from "../utils";
 import { useState } from "react";
 
 const Breeding = () => {
-  const [axieIdOne, setAxieIdOne] = useState("0");
-  const [axieIdTwo, setAxieIdTwo] = useState("0");
+  const [axieIdOne, setAxieIdOne] = useState("");
+  const [axieIdTwo, setAxieIdTwo] = useState("");
 
   return (
     <IonPage>
@@ -22,7 +22,7 @@ const Breeding = () => {
           <div className="flex">
             <img
               src={
-                axieIdOne === "0"
+                axieIdOne === ""
                   ? getAxieImgFromId(1000)
                   : getAxieImgFromId(axieIdOne)
               }
@@ -50,7 +50,7 @@ const Breeding = () => {
           <div className="flex justify-end ">
             <img
               src={
-                axieIdTwo === "0"
+                axieIdTwo === ""
                   ? getAxieImgFromId(2000)
                   : getAxieImgFromId(axieIdTwo)
               }
