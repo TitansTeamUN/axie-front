@@ -8,28 +8,11 @@ import {
 
 import { Header } from "../components/Basic";
 import { getAxieImgFromId } from "../utils";
+import { useState } from "react";
 
 const Breeding = () => {
-  const demoMenuOptions = [
-    {
-      label: "Option 1",
-      icon: "",
-      slot: "",
-      onItemClick: () => {
-        console.log("clicked 1");
-      },
-      rippleEffect: true,
-    },
-    {
-      label: "Option 2",
-      icon: "",
-      slot: "",
-      onItemClick: () => {
-        console.log("clicked 2");
-      },
-      rippleEffect: true,
-    },
-  ];
+  const [axieIdOne, setAxieIdOne] = useState("0");
+  const [axieIdTwo, setAxieIdTwo] = useState("0");
 
   return (
     <IonPage>
@@ -38,7 +21,11 @@ const Breeding = () => {
         <div className="flex flex-col px-6 mt-6">
           <div className="flex">
             <img
-              src={getAxieImgFromId(9884834)}
+              src={
+                axieIdOne === "0"
+                  ? getAxieImgFromId(1000)
+                  : getAxieImgFromId(axieIdOne)
+              }
               className="w-28 h-18 object-contain mirror-img"
             />
           </div>
@@ -51,13 +38,22 @@ const Breeding = () => {
                 size={4}
                 className="text-black "
                 placeholder="12345678"
+                value={axieIdOne}
+                onIonChange={(e) => {
+                  setAxieIdOne(e.detail.value!);
+                }}
+                debounce={1000}
               ></IonInput>
             </div>
           </div>
 
           <div className="flex justify-end ">
             <img
-              src={getAxieImgFromId(9884834)}
+              src={
+                axieIdTwo === "0"
+                  ? getAxieImgFromId(2000)
+                  : getAxieImgFromId(axieIdTwo)
+              }
               className="w-28 h-18 object-contain"
             />
           </div>
@@ -69,13 +65,26 @@ const Breeding = () => {
               <IonInput
                 className="text-black "
                 placeholder="12345678"
+                value={axieIdTwo}
+                onIonChange={(e) => {
+                  setAxieIdTwo(e.detail.value!);
+                }}
+                debounce={1000}
               ></IonInput>
             </div>
           </div>
           <IonButton
             color="tertiary"
             className="justify-end"
-            href="/breedingResults"
+            href={`/breedingResults/${axieIdOne}/${axieIdTwo}`}
+            disabled={
+              axieIdOne === "0" ||
+              axieIdOne === "" ||
+              !/([0-9]){1,10}$/.test(axieIdOne) ||
+              axieIdTwo === "0" ||
+              axieIdTwo === "" ||
+              !/([0-9]){1,10}$/.test(axieIdTwo)
+            }
           >
             Breed
           </IonButton>

@@ -58,8 +58,8 @@ const App = () => (
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route exact path="/breedingResults">
-              <BreedingResults />
+            <Route path="/breedingResults/:idOne/:idTwo">
+              <BreedingResults/>
             </Route>
             <Route exact path="/myAxies">
               <MyAxies />
