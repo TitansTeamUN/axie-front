@@ -190,7 +190,7 @@ const getBreedAxieGenes = (axieGenesOne, axieGenesTwo) => {
   //aux Map (like-for) for calculate gene quality as a value from 0 to 1
   const auxMap = ["eyes", "ears", "back", "mouth", "horn", "tail"].map(
     (keyPart, index) => {
-      if (true)
+      /*if (true)
         console.log(
           allParts.d[keyPart].d.cls,
           classSelected,
@@ -207,7 +207,7 @@ const getBreedAxieGenes = (axieGenesOne, axieGenesTwo) => {
           allParts.r2[keyPart].r2.cls,
           classSelected,
           allParts.r2[keyPart].r2
-        );
+        );*/
       if (allParts.d[keyPart].d.cls === classSelected)
         geneQuality += 0.05555555555;
       if (allParts.r1[keyPart].r1.cls === classSelected)

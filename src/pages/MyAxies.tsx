@@ -103,7 +103,7 @@ const MyAxies = () => {
                   key={axie.id}
                   _id={axie.id}
                   image={axie.image}
-                  score={"1234"}
+                  name={axie.name}
                   value={
                     axie.auction === null ? null : axie.auction.currentPriceUSD
                   }
