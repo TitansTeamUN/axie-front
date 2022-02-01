@@ -72,6 +72,7 @@ const AxiesSearch = () => {
                   name={el.score}
                   value={el.value}
                   breedCount={el.breedCount}
+                  axieClass={"Plant"}
                 />
               );
             })}

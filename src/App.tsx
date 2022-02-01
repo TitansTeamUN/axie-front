@@ -8,6 +8,9 @@ import {
   IonTabButton,
   IonTabs,
 } from "@ionic/react";
+
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
 import { IonReactRouter } from "@ionic/react-router";
 import { ellipse, square, triangle } from "ionicons/icons";
 
@@ -39,67 +42,75 @@ import Menu from "./pages/Menu";
 import Home from "./pages/Home";
 import News from "./pages/News";
 import CardExplorer from "./pages/CardExplorer";
-import ScholarshipCalculator from "./pages/ScholarshipCalculator";
+import ScholarshipCalc from "./pages/ScholarshipCalculator";
 
 /* different styles */
 import "./theme/miscelaneous.css";
 
+/*Instance of Apollo Client (GraphQL) */
+const gqlClient = new ApolloClient({
+  uri: "https://graphql-gateway.axieinfinity.com/graphql",
+  cache: new InMemoryCache(),
+});
+
 const App = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/breedingResults">
-            <BreedingResults />
-          </Route>
-          <Route exact path="/myAxies">
-            <MyAxies />
-          </Route>
-          <Route path="/axiesSearch">
-            <AxiesSearch />
-          </Route>
-          <Route path="/menu">
-            <Menu />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/scholar-calc">
-            <ScholarshipCalculator />
-          </Route>
-          <Route path="/news">
-            <News />
-          </Route>
-          <Route path="/breeding">
-            <Breeding />
-          </Route>
-          <Route path="/card-explorer">
-            <CardExplorer />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom" hidden>
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="Menu" href="/Menu">
-            <IonIcon icon={square} />
-            <IonLabel>Menu</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
+    <ApolloProvider client={gqlClient}>
+      <IonReactRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route path="/breedingResults/:idOne/:idTwo">
+              <BreedingResults />
+            </Route>
+            <Route exact path="/myAxies">
+              <MyAxies />
+            </Route>
+            <Route path="/axiesSearch">
+              <AxiesSearch />
+            </Route>
+            <Route path="/menu">
+              <Menu />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/scholar-calc">
+              <ScholarshipCalc />
+            </Route>
+            <Route path="/news">
+              <News />
+            </Route>
+            <Route path="/breeding">
+              <Breeding />
+            </Route>
+            <Route path="/card-explorer">
+              <CardExplorer />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom" hidden>
+            <IonTabButton tab="tab1" href="/tab1">
+              <IonIcon icon={triangle} />
+              <IonLabel>Tab 1</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="tab2" href="/tab2">
+              <IonIcon icon={ellipse} />
+              <IonLabel>Tab 2</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="tab3" href="/tab3">
+              <IonIcon icon={square} />
+              <IonLabel>Tab 3</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="Menu" href="/Menu">
+              <IonIcon icon={square} />
+              <IonLabel>Menu</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonReactRouter>
+    </ApolloProvider>
   </IonApp>
 );
 
