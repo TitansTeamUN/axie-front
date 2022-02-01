@@ -498,7 +498,7 @@ const ScholarshipCalculator = () => {
             <div className="my-1.5 py-1">
               <h2
                 id="estimated_earnings"
-                className="bg-blue-500 font-bold text-xl rounded-md text-white text-center"
+                className="bg-deepSpaceSparkie font-bold text-xl rounded-md text-white text-center"
               >
                 Estimated earnings
               </h2>
@@ -506,7 +506,7 @@ const ScholarshipCalculator = () => {
               <div className="py-1.5">
                 <div
                   id="scholars"
-                  className="bg-yellow-300 text-lg rounded-md text-black text-center"
+                  className="bg-greenSheen text-lg rounded-md text-white text-center font-bold"
                 ></div>
                 <div className="w-full mx-auto">
                   <div className="flex flex-row text-white text-center">
@@ -551,7 +551,7 @@ const ScholarshipCalculator = () => {
 
               <div
                 id="manager"
-                className="bg-green-300 text-lg rounded-md text-black text-center"
+                className="bg-greenSheen text-lg rounded-md text-white text-center font-bold"
               ></div>
 
               <div className="flex flex-row text-white text-center">
@@ -595,7 +595,7 @@ const ScholarshipCalculator = () => {
 
               <div
                 id="total"
-                className="bg-indigo-300 text-lg rounded-md text-black text-center"
+                className="bg-greenSheen text-lg rounded-md text-white text-center font-bold"
               ></div>
               <div className="flex flex-row text-white text-center">
                 <div className="mx-auto my-1 space-x-4">
@@ -638,12 +638,12 @@ const ScholarshipCalculator = () => {
             <div className="my-1.5 py-1">
               <h2
                 id="daily_rewards"
-                className="bg-blue-500 font-bold text-xl rounded-md text-white text-center"
+                className="bg-deepSpaceSparkie font-bold text-xl rounded-md text-white text-center"
               >
                 Daily quest rewards
               </h2>
               <div className="w-full my-1.5 py-1">
-                <div className="bg-red-500 text-lg rounded-md text-white text-center font-bold">
+                <div className="bg-greenSheen text-lg rounded-md text-white text-center font-bold">
                   Daily mission • 25 SLP
                 </div>
                 <span className="text-white text-center block text-2xl">
@@ -659,7 +659,7 @@ const ScholarshipCalculator = () => {
                 ></span>
               </div>
               <div className="w-full my-1.5 py-1">
-                <div className="bg-red-500 text-lg rounded-md text-white text-center font-bold">
+                <div className="bg-greenSheen text-lg rounded-md text-white text-center font-bold">
                   Daily adventure • 50 SLP
                 </div>
 
@@ -680,14 +680,14 @@ const ScholarshipCalculator = () => {
             <div className="my-1.5 py-1">
               <h2
                 id="arena_rewards"
-                className="bg-blue-500 font-bold text-xl rounded-md text-white text-center"
+                className="bg-deepSpaceSparkie font-bold text-xl rounded-md text-white text-center"
               >
                 Arena win rewards
               </h2>
               <div className="w-full my-1.5">
                 <div className="flex flex-row">
                   <div className="px-0.5 w-1/3 grow my-2">
-                    <div className="bg-indigo-900 text-lg rounded-md text-white text-center font-bold">
+                    <div className="bg-greenSheen text-lg rounded-md text-white text-center font-bold">
                       6 SLP
                     </div>
                     <span className="text-white text-center block text-xl">
@@ -696,7 +696,7 @@ const ScholarshipCalculator = () => {
                   </div>
 
                   <div className="px-0.5 w-1/3 grow my-2">
-                    <div className="bg-indigo-900 text-lg rounded-md text-white text-center font-bold">
+                    <div className="bg-greenSheen text-lg rounded-md text-white text-center font-bold">
                       9 SLP
                     </div>
                     <span className="text-white text-center block text-xl">
@@ -705,7 +705,7 @@ const ScholarshipCalculator = () => {
                   </div>
 
                   <div className="px-0.5 w-1/3 grow my-2">
-                    <div className="bg-indigo-900 text-lg rounded-md text-white text-center font-bold">
+                    <div className="bg-greenSheen text-lg rounded-md text-white text-center font-bold">
                       12 SLP
                     </div>
                     <span className="text-white text-center block text-xl">
@@ -713,7 +713,7 @@ const ScholarshipCalculator = () => {
                     </span>
                   </div>
                 </div>
-                <div className="bg-indigo-900 text-lg rounded-md text-white text-center font-bold">
+                <div className="bg-greenSheen text-lg rounded-md text-white text-center font-bold">
                   15 SLP
                 </div>
                 <span className="text-white text-center block text-xl">
