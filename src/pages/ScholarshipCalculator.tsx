@@ -161,13 +161,19 @@ const ScholarshipCalculator = () => {
     ) as HTMLInputElement;
 
     // Valores diarios
-    totalSLP_daily =
-      (parseInt(numberV.value) * parseInt(estimatedV.value)) /
-      parseInt(periodV.value);
+    totalSLP_daily = parseFloat(
+      (
+        (parseInt(numberV.value) * parseInt(estimatedV.value)) /
+        parseInt(periodV.value)
+      ).toFixed(2)
+    );
 
-    var slpScholar_daily =
-      (parseFloat(percentageV.value) * totalSLP_daily) / 100;
-    var slpManager_daily = totalSLP_daily - slpScholar_daily;
+    var slpScholar_daily = parseFloat(
+      ((parseFloat(percentageV.value) * totalSLP_daily) / 100).toFixed(2)
+    );
+    var slpManager_daily = parseFloat(
+      (totalSLP_daily - slpScholar_daily).toFixed(2)
+    );
 
     var slpScholarCurrency_daily = parseFloat(
       (slpScholar_daily * parseFloat(priceV.value)).toFixed(2)
@@ -180,20 +186,20 @@ const ScholarshipCalculator = () => {
     );
 
     // Valores semanales
-    var totalSLP_weekly = totalSLP_daily * 7;
+    var totalSLP_weekly = (totalSLP_daily * 7).toFixed(2);
 
-    var slpScholar_weekly = slpScholar_daily * 7;
-    var slpManager_weekly = slpManager_daily * 7;
+    var slpScholar_weekly = (slpScholar_daily * 7).toFixed(2);
+    var slpManager_weekly = (slpManager_daily * 7).toFixed(2);
 
     var slpScholarCurrency_weekly = (slpScholarCurrency_daily * 7).toFixed(2);
     var slpManagerCurrency_weekly = (slpManagerCurrency_daily * 7).toFixed(2);
     var totalCurrency_weekly = (totalCurrency_daily * 7).toFixed(2);
 
     // Valores mensuales
-    var totalSLP_monthly = totalSLP_daily * 30;
+    var totalSLP_monthly = (totalSLP_daily * 30).toFixed(2);
 
-    var slpScholar_monthly = slpScholar_daily * 30;
-    var slpManager_monthly = slpManager_daily * 30;
+    var slpScholar_monthly = (slpScholar_daily * 30).toFixed(2);
+    var slpManager_monthly = (slpManager_daily * 30).toFixed(2);
 
     var slpScholarCurrency_monthly = (slpScholarCurrency_daily * 30).toFixed(2);
     var slpManagerCurrency_monthly = (slpManagerCurrency_daily * 30).toFixed(2);
@@ -404,279 +410,313 @@ const ScholarshipCalculator = () => {
       <Header menu="menu" title="Scholarship calculator" />
       <IonContent fullscreen color="primary">
         <div className="w-4/5 my-6 mx-auto">
-          <div className="flex flex-row">
-            <div className="w-2/5 flex items-center mx-auto p-0.5">
-              <label className="text-white text-center w-3/5"># Scholars</label>
-              <IonInput
-                type="number"
-                name="number_scholars"
-                id="number_scholars"
-                placeholder="# of scholars"
-                className="text-black text-center bg-white rounded-md w-2/5 inline-block"
-                onIonChange={() => calcValues()}
-              ></IonInput>
-            </div>
-
-            <div className="w-3/5 flex items-center mx-auto p-0.5">
-              <label className="text-white text-center w-2/5">SLP Price</label>
-              <IonInput
-                type="text"
-                id="SLP_Price"
-                name="SLP_Price"
-                placeholder="SLP Price"
-                className="text-black text-center bg-white rounded-md w-3/5 inline-block"
-                onIonChange={() => calcValues()}
-              ></IonInput>
-            </div>
+          <div className="w-full flex items-center mx-auto p-0.5">
+            <label className="text-white text-center w-1/4"># Scholars</label>
+            <IonInput
+              type="number"
+              name="number_scholars"
+              id="number_scholars"
+              placeholder="# of scholars"
+              className="text-black text-center bg-white rounded-md w-3/4 inline-block"
+              onIonChange={() => calcValues()}
+            ></IonInput>
           </div>
 
-          <div className="flex flex-row">
-            <div className="w-2/5 flex items-center mx-auto p-0.5">
-              <label className="text-white text-center w-1/3">%</label>
-              <IonInput
-                type="text"
-                id="percentageScholar"
-                name="percentageScholar"
-                placeholder="% per Scholar"
-                className="text-black text-center bg-white rounded-md w-2/3 inline-block"
-                onIonChange={() => calcValues()}
-              ></IonInput>
-            </div>
-
-            <div className="w-3/5 flex items-center mx-auto p-0.5">
-              <label className="text-white text-center w-2/5">
-                Estimated SLP:{" "}
-              </label>
-              <IonInput
-                type="text"
-                id="estimated"
-                name="estimated"
-                placeholder="Estimated Scholar SLP"
-                className="text-black text-center bg-white rounded-md w-3/5 inline-block"
-                onIonChange={() => calcValues()}
-              ></IonInput>
-            </div>
+          <div className="w-full flex items-center mx-auto p-0.5">
+            <label className="text-white text-center w-1/4">SLP Price</label>
+            <IonInput
+              type="text"
+              id="SLP_Price"
+              name="SLP_Price"
+              placeholder="SLP Price"
+              className="text-black text-center bg-white rounded-md w-3/4 inline-block"
+              onIonChange={() => calcValues()}
+            ></IonInput>
           </div>
 
-          <div className="flex flex-row">
-            <div className="w-2/5 flex items-center mx-auto">
-              <label className="text-white text-center w-1/3">Per: </label>
-              <IonSelect
-                id="period"
-                name="period"
-                placeholder="Period"
-                className="text-black text-center bg-white rounded-md w-2/3 inline-block"
-                onIonChange={() => calcValues()}
-              >
-                <IonSelectOption value={"1"}>Day</IonSelectOption>
-                <IonSelectOption value={"7"}>Week</IonSelectOption>
-                <IonSelectOption value={"30"}>Month</IonSelectOption>
-              </IonSelect>
-            </div>
+          <div className="w-full flex items-center mx-auto p-0.5">
+            <label className="text-white text-center w-1/4">%</label>
+            <IonInput
+              type="text"
+              id="percentageScholar"
+              name="percentageScholar"
+              placeholder="% per Scholar"
+              className="text-black text-center bg-white rounded-md w-3/4 inline-block"
+              onIonChange={() => calcValues()}
+            ></IonInput>
+          </div>
 
-            <div className="w-3/5 flex items-center mx-auto">
-              <label className="text-white text-center w-2/5">Currency: </label>
-              <IonSelect
-                id="currency"
-                name="currency"
-                placeholder="Currency"
-                className="text-black text-center bg-white rounded-md w-3/5 inline-block"
-                onIonChange={() => getCurrency()}
-              >
-                {keys.map((key) => {
-                  return (
-                    <IonSelectOption value={key}>
-                      {currencyOptions[key]}
-                    </IonSelectOption>
-                  );
-                })}
-              </IonSelect>
-            </div>
+          <div className="w-full flex items-center mx-auto p-0.5">
+            <label className="text-white text-center w-1/4">
+              Estimated SLP:{" "}
+            </label>
+            <IonInput
+              type="text"
+              id="estimated"
+              name="estimated"
+              placeholder="Estimated Scholar SLP"
+              className="text-black text-center bg-white rounded-md w-3/4 inline-block"
+              onIonChange={() => calcValues()}
+            ></IonInput>
+          </div>
+
+          <div className="w-full flex items-center mx-auto p-0.5">
+            <label className="text-white text-center w-1/4">Per: </label>
+            <IonSelect
+              id="period"
+              name="period"
+              placeholder="Period"
+              className="text-black text-center bg-white rounded-md w-3/4 inline-block"
+              onIonChange={() => calcValues()}
+            >
+              <IonSelectOption value={"1"}>Day</IonSelectOption>
+              <IonSelectOption value={"7"}>Week</IonSelectOption>
+              <IonSelectOption value={"30"}>Month</IonSelectOption>
+            </IonSelect>
+          </div>
+
+          <div className="w-full flex items-center mx-auto p-0.5">
+            <label className="text-white text-center w-1/4">Currency: </label>
+            <IonSelect
+              id="currency"
+              name="currency"
+              placeholder="Currency"
+              className="text-black text-center bg-white rounded-md w-3/4 inline-block"
+              onIonChange={() => getCurrency()}
+            >
+              {keys.map((key) => {
+                return (
+                  <IonSelectOption value={key}>
+                    {currencyOptions[key]}
+                  </IonSelectOption>
+                );
+              })}
+            </IonSelect>
           </div>
 
           <div className="w-full my-6">
-            <div className="my-1.5">
+            <div className="my-1.5 py-1">
               <h2
                 id="estimated_earnings"
-                className="bg-blue-500 text-xl rounded-md text-white text-center"
+                className="bg-blue-500 font-bold text-xl rounded-md text-white text-center"
               >
                 Estimated earnings
               </h2>
 
-              <div className="w-4/5 mx-auto bg-blue-100 my-1.5">
+              <div className="py-1.5">
                 <div
                   id="scholars"
                   className="bg-yellow-300 text-lg rounded-md text-black text-center"
                 ></div>
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Daily:</strong>
-                    </span>
-                    <span id="daily_scholar"></span>
-                    <span id="daily_scholar_curren"></span>
+                <div className="w-full mx-auto">
+                  <div className="flex flex-row text-white text-center">
+                    <div className="mx-auto my-1 space-x-4">
+                      <span>
+                        <strong>Daily:</strong>
+                      </span>
+                      <span
+                        className="text-2xl font-bold"
+                        id="daily_scholar_curren"
+                      ></span>
+                      <span id="daily_scholar"></span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Weekly:</strong>
-                    </span>
-                    <span id="week_scholar"></span>
-                    <span id="week_scholar_curren"></span>
+                  <div className="flex flex-row text-white text-center">
+                    <div className="mx-auto my-1 space-x-4">
+                      <span>
+                        <strong>Weekly:</strong>
+                      </span>
+                      <span
+                        className="text-2xl font-bold"
+                        id="week_scholar_curren"
+                      ></span>
+                      <span id="week_scholar"></span>
+                    </div>
+                  </div>
+                  <div className="flex flex-row text-white text-center">
+                    <div className="mx-auto my-1 space-x-4">
+                      <span>
+                        <strong>Monthly:</strong>
+                      </span>
+                      <span
+                        id="month_scholar_curren"
+                        className="text-2xl font-bold"
+                      ></span>
+                      <span id="month_scholar"></span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Monthly:</strong>
-                    </span>
-                    <span id="month_scholar"></span>
-                    <span id="month_scholar_curren"></span>
-                  </div>
-                </div>
+              </div>
 
-                <div
-                  id="manager"
-                  className="bg-green-300 text-lg rounded-md text-black text-center"
-                ></div>
+              <div
+                id="manager"
+                className="bg-green-300 text-lg rounded-md text-black text-center"
+              ></div>
 
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Daily:</strong>
-                    </span>
-                    <span id="daily_manager"></span>
-                    <span id="daily_manager_curren"></span>
-                  </div>
+              <div className="flex flex-row text-white text-center">
+                <div className="mx-auto my-1 space-x-4">
+                  <span>
+                    <strong>Daily:</strong>
+                  </span>
+                  <span
+                    id="daily_manager_curren"
+                    className="text-2xl font-bold"
+                  ></span>
+                  <span id="daily_manager"></span>
                 </div>
+              </div>
 
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Weekly:</strong>
-                    </span>
-                    <span id="week_manager"></span>
-                    <span id="week_manager_curren"></span>
-                  </div>
+              <div className="flex flex-row text-white text-center">
+                <div className="mx-auto my-1 space-x-4">
+                  <span>
+                    <strong>Weekly:</strong>
+                  </span>
+                  <span
+                    id="week_manager_curren"
+                    className="text-2xl font-bold"
+                  ></span>
+                  <span id="week_manager"></span>
                 </div>
+              </div>
 
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Monthly:</strong>
-                    </span>
-                    <span id="month_manager"></span>
-                    <span id="month_manager_curren"></span>
-                  </div>
+              <div className="flex flex-row text-white text-center">
+                <div className="mx-auto my-1 space-x-4">
+                  <span>
+                    <strong>Monthly:</strong>
+                  </span>
+                  <span
+                    id="month_manager_curren"
+                    className="text-2xl font-bold"
+                  ></span>
+                  <span id="month_manager"></span>
                 </div>
+              </div>
 
-                <div
-                  id="total"
-                  className="bg-indigo-300 text-lg rounded-md text-black text-center"
-                ></div>
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Daily:</strong>
-                    </span>
-                    <span id="daily_total"></span>
-                    <span id="daily_total_curren"></span>
-                  </div>
+              <div
+                id="total"
+                className="bg-indigo-300 text-lg rounded-md text-black text-center"
+              ></div>
+              <div className="flex flex-row text-white text-center">
+                <div className="mx-auto my-1 space-x-4">
+                  <span>
+                    <strong>Daily:</strong>
+                  </span>
+                  <span
+                    id="daily_total_curren"
+                    className="text-2xl font-bold"
+                  ></span>
+                  <span id="daily_total"></span>
                 </div>
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Weekly:</strong>
-                    </span>
-                    <span id="week_total"></span>
-                    <span id="week_total_curren"></span>
-                  </div>
+              </div>
+              <div className="flex flex-row text-white text-center">
+                <div className="mx-auto my-1 space-x-4">
+                  <span>
+                    <strong>Weekly:</strong>
+                  </span>
+                  <span
+                    id="week_total_curren"
+                    className="text-2xl font-bold"
+                  ></span>
+                  <span id="week_total"></span>
                 </div>
-                <div className="flex flex-row text-black text-center">
-                  <div className="mx-auto my-1 space-x-4">
-                    <span>
-                      <strong>Monthly:</strong>
-                    </span>
-                    <span id="month_total"></span>
-                    <span id="month_total_curren"></span>
-                  </div>
+              </div>
+              <div className="flex flex-row text-white text-center">
+                <div className="mx-auto my-1 space-x-4">
+                  <span>
+                    <strong>Monthly:</strong>
+                  </span>
+                  <span
+                    id="month_total_curren"
+                    className="text-2xl font-bold"
+                  ></span>
+                  <span id="month_total"></span>
                 </div>
               </div>
             </div>
 
-            <div className="my-1.5">
+            <div className="my-1.5 py-1">
               <h2
                 id="daily_rewards"
-                className="bg-blue-500 text-xl rounded-md text-white text-center"
+                className="bg-blue-500 font-bold text-xl rounded-md text-white text-center"
               >
                 Daily quest rewards
               </h2>
-              <div className="w-4/5 mx-auto bg-blue-100 my-1.5">
-                <div className="bg-red-300 text-lg rounded-md text-black text-center">
+              <div className="w-full my-1.5 py-1">
+                <div className="bg-red-500 text-lg rounded-md text-white text-center font-bold">
                   Daily mission • 25 SLP
                 </div>
-                <span className="text-black text-center block text-lg">
+                <span className="text-white text-center block text-2xl">
                   <strong id="mission_daily"></strong>
                 </span>
                 <span
-                  className="text-black text-center block"
+                  className="text-white text-center block text-lg px-1"
                   id="distribution_mission_daily_scholar"
                 ></span>
                 <span
-                  className="text-black text-center block"
+                  className="text-white text-center block text-lg px-1"
                   id="distribution_mission_daily_manager"
                 ></span>
-
-                <div className="bg-red-300 text-lg rounded-md text-black text-center">
+              </div>
+              <div className="w-full my-1.5 py-1">
+                <div className="bg-red-500 text-lg rounded-md text-white text-center font-bold">
                   Daily adventure • 50 SLP
                 </div>
 
-                <span className="text-black text-center block text-lg">
+                <span className="text-white text-center block text-2xl">
                   <strong id="adventure_daily"></strong>
                 </span>
                 <span
-                  className="text-black text-center block"
+                  className="text-white text-center block text-lg px-1"
                   id="distribution_adventure_daily_scholar"
                 ></span>
                 <span
-                  className="text-black text-center block"
+                  className="text-white text-center block text-lg px-1"
                   id="distribution_adventure_daily_manager"
                 ></span>
               </div>
             </div>
 
-            <div className="my-1.5">
+            <div className="my-1.5 py-1">
               <h2
                 id="arena_rewards"
-                className="bg-blue-500 text-xl rounded-md text-white text-center"
+                className="bg-blue-500 font-bold text-xl rounded-md text-white text-center"
               >
                 Arena win rewards
               </h2>
-              <div className="w-4/5 mx-auto bg-blue-100 my-1.5">
-                <div className="bg-indigo-900 text-lg rounded-md text-white text-center">
-                  6 SLP
+              <div className="w-full my-1.5">
+                <div className="flex flex-row">
+                  <div className="px-0.5 w-1/3 grow my-2">
+                    <div className="bg-indigo-900 text-lg rounded-md text-white text-center font-bold">
+                      6 SLP
+                    </div>
+                    <span className="text-white text-center block text-xl">
+                      <strong id="arena_6"></strong>
+                    </span>
+                  </div>
+
+                  <div className="px-0.5 w-1/3 grow my-2">
+                    <div className="bg-indigo-900 text-lg rounded-md text-white text-center font-bold">
+                      9 SLP
+                    </div>
+                    <span className="text-white text-center block text-xl">
+                      <strong id="arena_9"></strong>
+                    </span>
+                  </div>
+
+                  <div className="px-0.5 w-1/3 grow my-2">
+                    <div className="bg-indigo-900 text-lg rounded-md text-white text-center font-bold">
+                      12 SLP
+                    </div>
+                    <span className="text-white text-center block text-xl">
+                      <strong id="arena_12"></strong>
+                    </span>
+                  </div>
                 </div>
-                <span className="text-black text-center block text-lg">
-                  <strong id="arena_6"></strong>
-                </span>
-                <div className="bg-indigo-900 text-lg rounded-md text-white text-center">
-                  9 SLP
-                </div>
-                <span className="text-black text-center block text-lg">
-                  <strong id="arena_9"></strong>
-                </span>
-                <div className="bg-indigo-900 text-lg rounded-md text-white text-center">
-                  12 SLP
-                </div>
-                <span className="text-black text-center block text-lg">
-                  <strong id="arena_12"></strong>
-                </span>
-                <div className="bg-indigo-900 text-lg rounded-md text-white text-center">
+                <div className="bg-indigo-900 text-lg rounded-md text-white text-center font-bold">
                   15 SLP
                 </div>
-                <span className="text-black text-center block text-lg">
+                <span className="text-white text-center block text-xl">
                   <strong id="arena_15"></strong>
                 </span>
               </div>
