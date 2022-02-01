@@ -28,6 +28,7 @@ module.exports = {
         cursive: ["Luckiest Guy"],
         cursiveTwo: ["Changa One"],
       },
+      width: { "5/18": "27.7777%" },
 
       fontSize: {
         xxs: [

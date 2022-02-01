@@ -69,7 +69,7 @@ const AxiesSearch = () => {
                 <MyAxiesCard
                   _id={el._id}
                   image={el.image}
-                  score={el.score}
+                  name={el.score}
                   value={el.value}
                   breedCount={el.breedCount}
                 />

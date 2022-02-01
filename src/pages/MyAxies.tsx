@@ -1,6 +1,8 @@
 import { IonContent, IonPage, IonSearchbar } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { Header } from "../components/Basic";
+import { useQuery } from "@apollo/client";
+import { GetAxieBriefList } from "../graphql/queries/axie";
 
 import MyAxiesCard from "../components/myAxies/MyAxiesCard";
 
@@ -63,20 +65,25 @@ const MyAxies = () => {
             setSearch(e.detail.value!);
           }}
         />
-        <div className="grid grid-cols-2">
-          {myaxiexArray.map((axie) => {
-            return (
-              <MyAxiesCard
-                key={axie._id}
-                _id={axie._id}
-                image={axie.image}
-                score={axie.score}
-                value={axie.value}
-                breedCount={axie.breedCount}
-              />
-            );
-          })}
-        </div>
+        {data && (
+          <div className="grid grid-cols-2">
+            {myAxiesArray.map((axie) => {
+              return (
+                <MyAxiesCard
+                  key={axie.id}
+                  _id={axie.id}
+                  image={axie.image}
+                  name={axie.name}
+                  value={
+                    axie.auction === null ? null : axie.auction.currentPriceUSD
+                  }
+                  axieClass={axie.class}
+                  breedCount={axie.breedCount}
+                />
+              );
+            })}
+          </div>
+        )}
       </IonContent>
     </IonPage>
   );
