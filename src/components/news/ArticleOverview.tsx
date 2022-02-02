@@ -1,4 +1,5 @@
-import { IonIcon } from "@ionic/react";
+import { IonIcon, IonRouterLink } from "@ionic/react";
+import { Link, Router } from "react-router-dom";
 
 import {
   checkmarkCircleOutline,
@@ -27,49 +28,45 @@ const ArticleOverview = ({
   source,
   mainImgSrc,
   initialText,
+  url,
 }) => {
   return (
-    <div className="flex flex-col bg-white  border border-black rounded-md m-4 px-4 pt-8 pb-4">
-      <div className="flex">
-        <div className="flex w-10 h-10 mr-3">
-          <div className="w-full">
-            <IonIcon
-              icon={titleIcon}
-              className="text-darkPurpleSecondary text-3xl"
-            ></IonIcon>
+    <div>
+      <div className="flex flex-col rounded-md m-4 px-4 pt-8 pb-4 text-center">
+        <div className="flex">
+          <div className="text-2xl font-bold text-white mb-4 text-center mx-auto">
+            {title}
           </div>
         </div>
-        <div className="text-2xl text-darkPurpleSecondary underline mb-4">
-          {title}
+        <div className="text-sm text-sonicSilver ">{`${date} | ${source}`}</div>
+        <div className="my-3">
+          <img className="rounded-sm" src={mainImgSrc} />
         </div>
-      </div>
-      <div className="text-sm text-sonicSilver ">{`${date} | ${source}`}</div>
-      <div className="my-3">
-        <img className="rounded-sm" src={mainImgSrc} />
-      </div>
-      <div className="text-xs text-sonicSilver mb-4">
-        {`${initialText} ...`}
-      </div>
-      <div className="flex justify-between">
-        <div className="flex w-10 h-10">
-          <div className="w-full text-darkPurpleMain">
-            <IonIcon icon={shareSocial} className="text-3xl"></IonIcon>
+        <div className="text-xs text-white mb-4">{`${initialText} ...`}</div>
+        <div className="flex justify-between">
+          <div className="flex w-10 h-10">
+            <div className="w-full text-white">
+              <IonRouterLink href={url} className="text-white font-mono">
+                <IonIcon icon={shareSocial} className="text-3xl"></IonIcon>
+              </IonRouterLink>
+            </div>
           </div>
-        </div>
-        <div className="flex w-10 h-10">
-          <div className="w-full text-red-500">
-            <IonIcon icon={heart} className="text-3xl"></IonIcon>
+          <div className="flex w-10 h-10">
+            <div className="w-full text-red-500" id="heart">
+              <IonIcon icon={heart} className="text-3xl"></IonIcon>
+            </div>
           </div>
-        </div>
-        <div className="flex w-10 h-10">
-          <div className="w-full text-greenSheen">
-            <IonIcon
-              icon={checkmarkCircleOutline}
-              className="text-3xl"
-            ></IonIcon>
+          <div className="flex w-10 h-10">
+            <div className="w-full text-greenSheen">
+              <IonIcon
+                icon={checkmarkCircleOutline}
+                className="text-3xl"
+              ></IonIcon>
+            </div>
           </div>
         </div>
       </div>
+      <div className="sticky h-px bg-blue-200 w-4/5 mx-auto"></div>
     </div>
   );
 };
