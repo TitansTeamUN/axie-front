@@ -1,5 +1,4 @@
 import { IonContent, IonHeader, IonPage, IonSearchbar } from "@ionic/react";
-import { document } from "ionicons/icons";
 
 import { Header } from "../components/Basic";
 import { ArticleOverview } from "../components/news";
@@ -28,7 +27,7 @@ const News = () => {
 
   const articlesDemo = [
     {
-      titleIcon: document, //use a const from ionicons
+      id: 1,
       title: "RON Is Live!",
       date: "01/27/2022",
       source: "Axie Infinity Substack",
@@ -39,7 +38,7 @@ const News = () => {
         url: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faxie.substack.com%2Fp%2Fron&amp;src=sdkpreparse"
     },
     {
-      titleIcon: document, //use a const from ionicons
+      id: 2,
       title: "Season 20 Balancing Buffer Period",
       date: "01/16/2022",
       source: "Axie Infinity Substack",
@@ -50,7 +49,7 @@ const News = () => {
         url: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faxie.substack.com%2Fp%2Fseason-20-balancing-buffer-period&amp;src=sdkpreparse"
     },
     {
-      titleIcon: document, //use a const from ionicons
+      id: 3,
       title: "[Axie] January Development Update!",
       date: "01/15/2022",
       source: "Axie Infinity Substack",
@@ -62,6 +61,26 @@ const News = () => {
     }
   ];
 
+  function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("content");
+    li = ul.getElementsByClassName("article");
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByClassName("title-article")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+
   return (
     <IonPage>
       <Header menu="menu" title="News" />
@@ -72,12 +91,13 @@ const News = () => {
             value=""
             placeholder="Search news..."
             className="text-black"
-            onIonChange={(e) => console.log(e.detail.value)}
+            onIonChange={(e) => myFunction()}
+            id="search"
           ></IonSearchbar>
         </div>
       </IonHeader>
 
-      <IonContent fullscreen color="primary">
+      <IonContent fullscreen id="content" color="primary">
         {articlesDemo.map((article, index) => {
           return (
             <ArticleOverview
@@ -86,9 +106,9 @@ const News = () => {
               mainImgSrc={article.mainImgSrc}
               source={article.source}
               title={article.title}
-              titleIcon={article.titleIcon}
               key={index}
               url={article.url}
+              idEle={article.id}
             />
           );
         })}
