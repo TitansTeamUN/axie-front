@@ -174,4 +174,44 @@ const GetAxieDetail: DocumentNode = gql`
   }
 `;
 
-export { GetAxieBriefList, GetAxieDetail };
+const GetParentsBrief: DocumentNode = gql`
+  query GetParentsBrief($matronId: ID!, $sireId: ID!) {
+    matron: axie(axieId: $matronId) {
+      ...AxieBrief
+      __typename
+    }
+    sire: axie(axieId: $sireId) {
+      ...AxieBrief
+      __typename
+    }
+  }
+
+  fragment AxieBrief on Axie {
+    id
+    name
+    stage
+    class
+    breedCount
+    image
+    title
+    battleInfo {
+      banned
+      __typename
+    }
+    auction {
+      currentPrice
+      currentPriceUSD
+      __typename
+    }
+    parts {
+      id
+      name
+      class
+      type
+      specialGenes
+      __typename
+    }
+    __typename
+  }
+`;
+export { GetAxieBriefList, GetAxieDetail, GetParentsBrief };

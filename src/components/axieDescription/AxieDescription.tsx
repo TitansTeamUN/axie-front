@@ -1,13 +1,14 @@
-import { IonButton, IonContent, IonModal } from "@ionic/react";
+import { IonButton, IonContent, IonLoading, IonModal } from "@ionic/react";
 import { getAxieImgFromId } from "../../utils";
 
 import AxieCardDescription from "../axieCardDescription/AxieCardDescription";
 import BreedingResultScore from "../breedingResultScore/BreedingResultScore";
 import { Card } from "../cardExplorer";
-import { GetAxieDetail } from "../../graphql/queries/axie";
+import { GetAxieDetail, GetParentsBrief } from "../../graphql/queries/axie";
 import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import cards from "../../utils/cards.json";
+import { analytics } from "ionicons/icons";
 
 const AxieDescription = ({ showModal, setShowModal, id }) => {
   const [axie, setAxie] = useState({
@@ -33,9 +34,13 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
       skill: "",
       speed: "",
     },
+    matronId: "",
+    sireId: "",
   });
 
   const [abilities, setAbilities] = useState([] as any);
+  const [parents, setParenst] = useState({} as any);
+  const [finalizado, setFinalizado] = useState(false);
 
   useEffect(() => {
     var aux = [] as any;
@@ -51,37 +56,34 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
     setAbilities(aux);
   }, [axie]);
 
-  const { loading, error, data } = useQuery(GetAxieDetail, {
+  var { loading, error, data } = useQuery(GetAxieDetail, {
     variables: {
       axieId: id,
     },
     onCompleted: (data) => {
       const axiesData = data.axie;
+      console.log("Data axie", axiesData);
       setAxie(axiesData);
+      setFinalizado(true);
     },
+    skip: !showModal,
   });
-  if (data) console.log("Data axie description", data);
 
-  const parents = [
-    {
-      _id: "#9854654",
-      image:
-        "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
-      score: 7521,
-      value: "Ξ 0.027",
-      breedCount: "0/6",
-      class: "",
+  data = useQuery(GetParentsBrief, {
+    variables: {
+      matronId: axie?.matronId,
+      sireId: axie?.sireId,
     },
-    {
-      _id: "#5454654",
-      image:
-        "https://mundotrucos.com/wp-content/uploads/2021/07/Reptile-Tail-Wall-Gecko-1024x768-2.png",
-      score: 434,
-      value: "Ξ 0.045",
-      breedCount: "1/6",
-      class: "",
+    onCompleted: (data) => {
+      console.log("Data parents", data);
+      setParenst(data);
     },
-  ];
+    skip: !finalizado,
+  });
+
+  useEffect(() => {
+    console.log("Mostrar o no modal", showModal);
+  }, []);
 
   return (
     <IonModal isOpen={showModal} key={id}>
@@ -170,22 +172,28 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
               </div>
             </div>
             <div>
-              <p>Parents</p>
-              <div className="grid grid-cols-2 justify-items-center">
-                {parents.map((axie) => {
-                  return (
+              {parents.matron && parents.sire && (
+                <>
+                  <p>Parents</p>
+                  <div className="grid grid-cols-2 justify-items-center">
                     <AxieCardDescription
-                      key={axie._id}
-                      _id={axie._id}
-                      image={axie.image}
-                      axieClass={axie.image}
+                      key={parents.matron.id}
+                      _id={parents.matron.id}
+                      image={parents.matron.image}
+                      axieClass={parents.matron.class}
                     />
-                  );
-                })}
-              </div>
+                    <AxieCardDescription
+                      key={parents.sire.id}
+                      _id={parents.sire.id}
+                      image={parents.sire.image}
+                      axieClass={parents.sire.class}
+                    />
+                  </div>
+                </>
+              )}
             </div>
             <div>
-              {axie.children.length > 0 ? (
+              {axie.children.length > 0 && (
                 <>
                   <p>Children</p>
                   <div className="grid grid-cols-2 justify-items-center">
@@ -201,8 +209,6 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
                     })}
                   </div>
                 </>
-              ) : (
-                <></>
               )}
             </div>
             <IonButton onClick={setShowModal} color="tertiary">
@@ -210,7 +216,13 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
             </IonButton>
           </div>
         ) : (
-          <></>
+          <>
+            <IonLoading
+              isOpen={loading}
+              message={"Cargando..."}
+              duration={5000}
+            />
+          </>
         )}
       </IonContent>
     </IonModal>
