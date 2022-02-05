@@ -43,6 +43,7 @@ import Home from "./pages/Home";
 import News from "./pages/News";
 import CardExplorer from "./pages/CardExplorer";
 import ScholarshipCalc from "./pages/ScholarshipCalculator";
+import Article from "./pages/news/Article";
 
 /* different styles */
 import "./theme/miscelaneous.css";
@@ -80,6 +81,7 @@ const App = () => (
             <Route path="/news">
               <News />
             </Route>
+            <Route path="/article/:id" component={Article}/>
             <Route path="/breeding">
               <Breeding />
             </Route>
