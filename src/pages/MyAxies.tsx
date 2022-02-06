@@ -9,7 +9,7 @@ import {
 } from "@ionic/react";
 import { useEffect, useState } from "react";
 import { Header } from "../components/Basic";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { GetAxieBriefList } from "../graphql/queries/axie";
 
 import MyAxiesCard from "../components/myAxies/MyAxiesCard";

@@ -42,6 +42,14 @@ const optionsDemo = [
     href: "/breeding",
   },
   {
+    label: "Scholarship calculator",
+    icon: "", //use a const  from ionicons or a custom path
+    slot: "",
+    onItemClick: () => {}, //a function to handle click on option
+    rippleEffect: true,
+    href: "/scholar-calc",
+  },
+  {
     label: "News",
     icon: "", //use a const  from ionicons or a custom path
     slot: "",

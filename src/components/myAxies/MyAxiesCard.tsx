@@ -25,10 +25,8 @@ const MyAxiesCard = ({ _id, image, name, value, breedCount, axieClass }) => {
           setShowModal={handleClose}
           id={_id}
         />
-        <div
-          className={`border border-black rounded-md px-2 py-1 bg-cl${axieClass}`}
-        >
-          <p>{`# ${_id}`}</p>
+        <div className="border border-black rounded-md px-2 py-1 bg-clReptile">
+          <p>{_id}</p>
         </div>
         <IonGrid className="flex justify-center">
           <IonRow>
@@ -41,11 +39,7 @@ const MyAxiesCard = ({ _id, image, name, value, breedCount, axieClass }) => {
           <div>
             <p className="text-sm">{name}</p>
           </div>
-          {value && (
-            <div>
-              <p className="text-sm">Price: {`$${value}`}</p>
-            </div>
-          )}
+          <div>{value && <p className="text-sm">Price: {value}</p>}</div>
           <div>
             <p className="text-sm">Breed count: {breedCount}</p>
           </div>

@@ -22,6 +22,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
+    "agp-npm": "^1.0.10",
     "axios": "^0.25.0",
     "graphql": "^16.3.0",
     "ionicons": "^5.4.0",
@@ -31,18 +32,7 @@
     "react-router-dom": "^5.2.0",
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4",
-    "workbox-background-sync": "^5.1.4",
-    "workbox-broadcast-update": "^5.1.4",
-    "workbox-cacheable-response": "^5.1.4",
-    "workbox-core": "^5.1.4",
-    "workbox-expiration": "^5.1.4",
-    "workbox-google-analytics": "^5.1.4",
-    "workbox-navigation-preload": "^5.1.4",
-    "workbox-precaching": "^5.1.4",
-    "workbox-range-requests": "^5.1.4",
-    "workbox-routing": "^5.1.4",
-    "workbox-strategies": "^5.1.4",
-    "workbox-streams": "^5.1.4"
+    "workbox-background-sync": "^5.1.4"
   },
   "scripts": {
     "start": "cracko start",
@@ -73,14 +63,14 @@
   "devDependencies": {
     "@capacitor/cli": "3.3.2",
     "autoprefixer": "^9.8.8",
-    "postcss": "^7.0.39",
-    "react-scripts": "4.0.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "follow-redirects": ">=1.14.7",
+    "immer": ">=9.0.6",
     "nanoid": ">=3.1.31",
     "node-forge": ">=1.0.0",
     "nth-check": ">=2.0.1",
-    "immer": ">=9.0.6"
+    "postcss": "^7.0.39",
+    "react-scripts": "4.0.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   },
   "description": "An Ionic project"
 }

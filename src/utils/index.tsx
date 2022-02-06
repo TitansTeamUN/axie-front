@@ -1,5 +1,15 @@
 import { constantDemo } from "./constants";
-import { getAxieImgFromId } from "./utils";
+import {
+  getAxieImgFromId,
+  getAxieGenefromHex,
+  getBreedAxieGenes,
+} from "./utils";
 import { axieCards } from "./cards";
 
-export { getAxieImgFromId, constantDemo, axieCards };
+export {
+  getAxieImgFromId,
+  getAxieGenefromHex,
+  getBreedAxieGenes,
+  constantDemo,
+  axieCards,
+};

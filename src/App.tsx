@@ -42,6 +42,8 @@ import Menu from "./pages/Menu";
 import Home from "./pages/Home";
 import News from "./pages/News";
 import CardExplorer from "./pages/CardExplorer";
+import ScholarshipCalc from "./pages/ScholarshipCalculator";
+import Article from "./pages/news/Article";
 
 /* different styles */
 import "./theme/miscelaneous.css";
@@ -58,7 +60,7 @@ const App = () => (
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route exact path="/breedingResults">
+            <Route path="/breedingResults/:idOne/:idTwo">
               <BreedingResults />
             </Route>
             <Route exact path="/myAxies">
@@ -73,9 +75,13 @@ const App = () => (
             <Route path="/home">
               <Home />
             </Route>
+            <Route path="/scholar-calc">
+              <ScholarshipCalc />
+            </Route>
             <Route path="/news">
               <News />
             </Route>
+            <Route path="/article/:id" component={Article}/>
             <Route path="/breeding">
               <Breeding />
             </Route>
