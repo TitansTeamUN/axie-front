@@ -8,7 +8,7 @@ import { GetAxieDetail, GetParentsBrief } from "../../graphql/queries/axie";
 import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import cards from "../../utils/cards.json";
-import { analytics } from "ionicons/icons";
+
 
 const AxieDescription = ({ showModal, setShowModal, id }) => {
   const [axie, setAxie] = useState({
@@ -39,7 +39,7 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
   });
 
   const [abilities, setAbilities] = useState([] as any);
-  const [parents, setParenst] = useState({} as any);
+  const [parents, setParents] = useState({} as any);
   const [finalizado, setFinalizado] = useState(false);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
     },
     onCompleted: (data) => {
       console.log("Data parents", data);
-      setParenst(data);
+      setParents(data);
     },
     skip: !finalizado,
   });
@@ -121,14 +121,14 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
               <div className="border-2 border-indigo-500/50 rounded-md bg-darkPurpleDarkest m-1 p-2">
                 <div className="flex justify-between">
                   <div className=" flex flex-col items-start w-1/2">
-                    {axie.parts.map((el, index) => {
+                    {axie.parts.map((part, index) => {
                       return index < 3 ? (
-                        <div className="flex items-center">
+                        <div key={index} className="flex items-center">
                           <img
                             width={36}
-                            src={`./assets/icon/axie-parts/${el.type}.svg`}
+                            src={`./assets/icon/axie-parts/${part.type}.svg`}
                           />
-                          <p className="text-sm ml-2">{el.name}</p>
+                          <p className="text-sm ml-2">{part.name}</p>
                         </div>
                       ) : (
                         <></>
@@ -136,14 +136,14 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
                     })}
                   </div>
                   <div className=" flex flex-col items-start w-1/2">
-                    {axie.parts.map((el, index) => {
+                    {axie.parts.map((part, index) => {
                       return index >= 3 ? (
-                        <div className="flex items-center">
+                        <div key={index} className="flex items-center">
                           <img
                             width={36}
-                            src={`./assets/icon/axie-parts/${el.type}.svg`}
+                            src={`./assets/icon/axie-parts/${part.type}.svg`}
                           />
-                          <p className="text-sm ml-2">{el.name}</p>
+                          <p className="text-sm ml-2">{part.name}</p>
                         </div>
                       ) : (
                         <></>
@@ -156,16 +156,17 @@ const AxieDescription = ({ showModal, setShowModal, id }) => {
             <div className="w-full mt-2">
               <p>Abilities</p>
               <div className="-indigo-500/50 m-1 p-2  grid grid-cols-2 w-full ">
-                {abilities.map((el) => {
+                {abilities.map((ability, index) => {
                   return (
                     <Card
+                      key={index}
                       size="small"
-                      attack={el.attack}
-                      defense={el.defense}
-                      description={el.description}
-                      energy={el.energy}
-                      imgUrl={el.imgUrl}
-                      name={el.name}
+                      attack={ability.attack}
+                      defense={ability.defense}
+                      description={ability.description}
+                      energy={ability.energy}
+                      imgUrl={ability.imgUrl}
+                      name={ability.name}
                     />
                   );
                 })}

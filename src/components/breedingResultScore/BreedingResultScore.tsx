@@ -8,11 +8,11 @@ const BreedingResultScore = ({ BreedingResultScore }) => {
           <IonRow>
             <p>Meta Score: {BreedingResultScore.Score}</p>
           </IonRow>
-        
+
           <IonRow>
             {BreedingResultScore.ScoreArray.map((stat, index) => {
               return (
-                <IonCol>
+                <IonCol key={index}>
                   {index === 0 && (
                     <img src="./assets/icon/axie-stats/health.svg" />
                   )}

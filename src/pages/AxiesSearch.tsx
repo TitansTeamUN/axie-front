@@ -1,17 +1,14 @@
 import { useQuery } from "@apollo/client";
 import {
   IonButton,
-  IonButtons,
-  IonCheckbox,
-  IonCol,
   IonContent,
-  IonItem,
-  IonLabel,
+  IonIcon,
   IonPage,
-  IonRange,
   IonRow,
+  IonLoading,
   IonSearchbar,
 } from "@ionic/react";
+import { arrowBackCircle, arrowForwardCircle, filter } from "ionicons/icons";
 import { useEffect, useState } from "react";
 import Header from "../components/Basic/Header";
 import FiltersAxiesSearch from "../components/filtersAxiesSearch/FiltersAxiesSearch";
@@ -37,6 +34,7 @@ const AxiesSearch = () => {
   const [myAxiesArray, setMyAxiesArray] = useState([] as any);
   const [page, setPage] = useState(0);
   const [showFilters, setShowFilters] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const toTop = () => {
     window.scrollTo({
@@ -56,6 +54,10 @@ const AxiesSearch = () => {
     toTop();
   };
 
+  const handleOnloading = (isLoading) => {
+    setIsLoading(isLoading);
+  };
+
   return (
     <>
       <FiltersAxiesSearch
@@ -63,10 +65,15 @@ const AxiesSearch = () => {
         setMyAxiesArray={setMyAxiesArray}
         page={page}
         setShowModal={setShowFilters}
+        onLoading={handleOnloading}
       />
       <div>
         <IonPage>
           <Header menu="menuAxiesSearch" title="Axies search" />
+          <IonLoading
+            isOpen={isLoading}
+            message="Loading data from marketplace... Please wait"
+          ></IonLoading>
           <IonContent fullscreen color="primary">
             <IonRow>
               <IonSearchbar
@@ -75,13 +82,15 @@ const AxiesSearch = () => {
                   setSearch(e.detail.value!);
                 }}
               />
-              <IonButton
-                onClick={() => setShowFilters(true)}
-                color="tertiary"
-                className="w-full text-lg mt-2"
-              >
-                Filtros
-              </IonButton>
+              <div className="w-full px-4">
+                <IonButton
+                  onClick={() => setShowFilters(true)}
+                  color="tertiary"
+                  className="w-full mt-2"
+                >
+                  <IonIcon icon={filter} />
+                </IonButton>
+              </div>
             </IonRow>
             <div className="grid grid-cols-2">
               {myAxiesArray.map((axie) => {
@@ -90,7 +99,7 @@ const AxiesSearch = () => {
                     key={axie.id}
                     _id={axie.id}
                     image={axie.image}
-                    score={"1234"}
+                    name={axie.name}
                     value={
                       axie.auction === null
                         ? null
@@ -102,30 +111,26 @@ const AxiesSearch = () => {
                 );
               })}
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+            <div className="flex justify-center items-center">
               <IonButton
                 onClick={() => {
                   handleBefore();
                 }}
                 color="tertiary"
                 disabled={page === 0}
+                size="small"
               >
-                Anterior
+                <IonIcon icon={arrowBackCircle} />
               </IonButton>
-              <p>{page + 1}</p>
+              <p className="mx-4">{page + 1}</p>
               <IonButton
                 onClick={() => {
                   handleAfter();
                 }}
                 color="tertiary"
+                size="small"
               >
-                Siguiente
+                <IonIcon icon={arrowForwardCircle} />
               </IonButton>
             </div>
           </IonContent>

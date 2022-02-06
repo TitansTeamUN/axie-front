@@ -6,6 +6,7 @@ import {
   IonContent,
   IonItem,
   IonLabel,
+  IonLoading,
   IonModal,
   IonRange,
   IonRow,
@@ -18,6 +19,7 @@ const FiltersAxiesSearch = ({
   setMyAxiesArray,
   page,
   setShowModal,
+  onLoading,
 }) => {
   const [checkboxList, setCheckboxList] = useState([
     { val: "Beast", isChecked: true },
@@ -68,6 +70,8 @@ const FiltersAxiesSearch = ({
     },
   });
 
+  onLoading(loading);
+
   const handleChangeHp = (e) => {
     const aux = e.detail.value;
     const aux2 = [aux.lower, aux.upper];
@@ -99,9 +103,9 @@ const FiltersAxiesSearch = ({
 
   useEffect(() => {
     const aux = [] as any;
-    checkboxList.forEach((el) => {
-      if (el.isChecked) {
-        aux.push(el.val);
+    checkboxList.forEach((checkbox) => {
+      if (checkbox.isChecked) {
+        aux.push(checkbox.val);
       }
     });
     console.log(aux);
@@ -110,11 +114,13 @@ const FiltersAxiesSearch = ({
   return (
     <IonModal isOpen={showModal}>
       <IonContent fullscreen color="primary">
-        <p>Axie Class</p>
+        <p className="w-full p-4 text-xl font-bold text-greenSheen">
+          Axie Class
+        </p>
         <IonRow>
           {checkboxList.map(({ val, isChecked }, i) => (
-            <IonCol sizeMd="4" sizeXs="6">
-              <IonItem key={i}>
+            <IonCol key={i} sizeMd="4" sizeXs="6">
+              <IonItem color="secondary" className="mx-2 rounded-md">
                 <IonLabel color="light">{val}</IonLabel>
                 <IonCheckbox
                   color="light"
@@ -129,7 +135,9 @@ const FiltersAxiesSearch = ({
             </IonCol>
           ))}
         </IonRow>
-        <p>Breeding count</p>
+        <p className="w-full p-4 text-xl font-bold text-greenSheen">
+          Breeding count
+        </p>
         <IonRange
           pin={true}
           value={breedCount}
@@ -139,7 +147,7 @@ const FiltersAxiesSearch = ({
           max={7}
           min={0}
         />
-        <p>Health</p>
+        <p className="w-full p-4 text-xl font-bold text-greenSheen">Health</p>
         <IonRange
           dualKnobs={true}
           min={27}
@@ -151,7 +159,7 @@ const FiltersAxiesSearch = ({
           onIonChange={(e) => handleChangeHp(e)}
           value={{ lower: hp[0], upper: hp[1] }}
         />
-        <p>Speed</p>
+        <p className="w-full p-4 text-xl font-bold text-greenSheen">Speed</p>
         <IonRange
           dualKnobs={true}
           min={27}
@@ -163,7 +171,7 @@ const FiltersAxiesSearch = ({
           onIonChange={(e) => handleChangeSpeed(e)}
           value={{ lower: speed[0], upper: speed[1] }}
         />
-        <p>Skill</p>
+        <p className="w-full p-4 text-xl font-bold text-greenSheen">Skill</p>
         <IonRange
           dualKnobs={true}
           min={27}
@@ -175,7 +183,7 @@ const FiltersAxiesSearch = ({
           onIonChange={(e) => handleChangeSkill(e)}
           value={{ lower: skill[0], upper: skill[1] }}
         />
-        <p>Morale</p>
+        <p className="w-full p-4 text-xl font-bold text-greenSheen">Morale</p>
         <IonRange
           dualKnobs={true}
           min={27}
@@ -187,13 +195,15 @@ const FiltersAxiesSearch = ({
           onIonChange={(e) => handleChangeMorale(e)}
           value={{ lower: morale[0], upper: morale[1] }}
         />
-        <IonButton
-          onClick={() => setShowModal(false)}
-          color="tertiary"
-          className="w-full text-lg mt-2"
-        >
-          Cerrar
-        </IonButton>
+        <div className="flex justify-center w-full">
+          <IonButton
+            onClick={() => setShowModal(false)}
+            color="tertiary"
+            className="w-4/5 text-lg mt-2"
+          >
+            Close
+          </IonButton>
+        </div>
       </IonContent>
     </IonModal>
   );
