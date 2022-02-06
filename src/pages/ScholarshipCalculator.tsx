@@ -164,11 +164,11 @@ const ScholarshipCalculator = () => {
       (
         (parseInt(numberV.value) * parseInt(estimatedV.value)) /
         parseInt(periodV.value)
-      ).toFixed(2)
+      ).toFixed(0)
     );
 
     var slpScholar_daily = parseFloat(
-      ((parseFloat(percentageV.value) * totalSLP_daily) / 100).toFixed(2)
+      ((parseFloat(percentageV.value) * totalSLP_daily) / 100).toFixed(0)
     );
     var slpManager_daily = parseFloat(
       (totalSLP_daily - slpScholar_daily).toFixed(2)
@@ -185,20 +185,20 @@ const ScholarshipCalculator = () => {
     );
 
     // Valores semanales
-    var totalSLP_weekly = (totalSLP_daily * 7).toFixed(2);
+    var totalSLP_weekly = (totalSLP_daily * 7).toFixed(0);
 
-    var slpScholar_weekly = (slpScholar_daily * 7).toFixed(2);
-    var slpManager_weekly = (slpManager_daily * 7).toFixed(2);
+    var slpScholar_weekly = (slpScholar_daily * 7).toFixed(0);
+    var slpManager_weekly = (slpManager_daily * 7).toFixed(0);
 
     var slpScholarCurrency_weekly = (slpScholarCurrency_daily * 7).toFixed(2);
     var slpManagerCurrency_weekly = (slpManagerCurrency_daily * 7).toFixed(2);
     var totalCurrency_weekly = (totalCurrency_daily * 7).toFixed(2);
 
     // Valores mensuales
-    var totalSLP_monthly = (totalSLP_daily * 30).toFixed(2);
+    var totalSLP_monthly = (totalSLP_daily * 30).toFixed(0);
 
-    var slpScholar_monthly = (slpScholar_daily * 30).toFixed(2);
-    var slpManager_monthly = (slpManager_daily * 30).toFixed(2);
+    var slpScholar_monthly = (slpScholar_daily * 30).toFixed(0);
+    var slpManager_monthly = (slpManager_daily * 30).toFixed(0);
 
     var slpScholarCurrency_monthly = (slpScholarCurrency_daily * 30).toFixed(2);
     var slpManagerCurrency_monthly = (slpManagerCurrency_daily * 30).toFixed(2);
@@ -440,7 +440,7 @@ const ScholarshipCalculator = () => {
 
             <div className="w-full flex items-center my-2">
               <label className="text-white text-left w-5/12 font-semibold">
-                Percentage (%) :
+                (%) :
               </label>
               <IonInput
                 type="text"
@@ -521,7 +521,7 @@ const ScholarshipCalculator = () => {
                 ></div>
                 <div className="w-full mx-auto">
                   <div className="flex flex-row text-white text-center">
-                    <div className="mx-auto my-1 space-x-4">
+                    <div className="flex justify-between items-center my-1 w-full">
                       <span>
                         <strong>Daily:</strong>
                       </span>
@@ -534,7 +534,7 @@ const ScholarshipCalculator = () => {
                   </div>
 
                   <div className="flex flex-row text-white text-center">
-                    <div className="mx-auto my-1 space-x-4">
+                  <div className="flex justify-between items-center my-1 w-full">
                       <span>
                         <strong>Weekly:</strong>
                       </span>
@@ -546,7 +546,7 @@ const ScholarshipCalculator = () => {
                     </div>
                   </div>
                   <div className="flex flex-row text-white text-center">
-                    <div className="mx-auto my-1 space-x-4">
+                  <div className="flex justify-between items-center my-1 w-full">
                       <span>
                         <strong>Monthly:</strong>
                       </span>
@@ -566,7 +566,7 @@ const ScholarshipCalculator = () => {
                 ></div>
 
                 <div className="flex flex-row text-white text-center">
-                  <div className="mx-auto my-1 space-x-4">
+                <div className="flex justify-between items-center my-1 w-full">
                     <span>
                       <strong>Daily:</strong>
                     </span>
@@ -579,7 +579,7 @@ const ScholarshipCalculator = () => {
                 </div>
 
                 <div className="flex flex-row text-white text-center">
-                  <div className="mx-auto my-1 space-x-4">
+                <div className="flex justify-between items-center my-1 w-full">
                     <span>
                       <strong>Weekly:</strong>
                     </span>
@@ -592,7 +592,7 @@ const ScholarshipCalculator = () => {
                 </div>
 
                 <div className="flex flex-row text-white text-center">
-                  <div className="mx-auto my-1 space-x-4">
+                <div className="flex justify-between items-center my-1 w-full">
                     <span>
                       <strong>Monthly:</strong>
                     </span>
@@ -610,7 +610,7 @@ const ScholarshipCalculator = () => {
                   className="bg-red-700 text-lg rounded-md text-white text-center font-bold"
                 ></div>
                 <div className="flex flex-row text-white text-center">
-                  <div className="mx-auto my-1 space-x-4">
+                <div className="flex justify-between items-center my-1 w-full">
                     <span>
                       <strong>Daily:</strong>
                     </span>
@@ -622,7 +622,7 @@ const ScholarshipCalculator = () => {
                   </div>
                 </div>
                 <div className="flex flex-row text-white text-center">
-                  <div className="mx-auto my-1 space-x-4">
+                 <div className="flex justify-between items-center my-1 w-full">
                     <span>
                       <strong>Weekly:</strong>
                     </span>
@@ -634,7 +634,7 @@ const ScholarshipCalculator = () => {
                   </div>
                 </div>
                 <div className="flex flex-row text-white text-center">
-                  <div className="mx-auto my-1 space-x-4">
+                 <div className="flex justify-between items-center my-1 w-full">
                     <span>
                       <strong>Monthly:</strong>
                     </span>

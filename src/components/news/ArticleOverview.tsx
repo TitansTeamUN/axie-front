@@ -3,10 +3,8 @@ import { useState } from "react";
 
 import {
   checkmarkCircleOutline,
-  document,
   heart,
   heartOutline,
-  shareSocial,
   logoFacebook,
 } from "ionicons/icons";
 import { Link } from "react-router-dom";
