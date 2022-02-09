@@ -144,7 +144,7 @@ const Login = () => {
                           callback={responseFacebook}
                           icon="fa-facebook" />
                 </div>
-                  <h1>.</h1>or<h1>.</h1>
+                  <h1></h1>or<h1></h1>
                 <div>
                 <GoogleLogin
                       clientId={clientId}
