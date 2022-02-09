@@ -11,8 +11,9 @@ import {
 import { useHistory } from "react-router-dom";
 import { Controller, useForm } from 'react-hook-form';
 import React, { useState } from 'react';
-
+import GoogleLogin from 'react-google-login';
 import { logoGoogle, logoFacebook } from "ionicons/icons";
+import FacebookLogin from 'react-facebook-login';
 
 const Login = () => {
   const history = useHistory();
@@ -21,43 +22,56 @@ const Login = () => {
   const [iserror, setIserror] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
 
-  const users = [
-    {
-      user: "admin",
-      pass: "admin123"
-    },
-  ];
+  const onSuccess = (res) => {
+    console.log('Login Success: currentUser:', res.profileObj);
+    history.push("/Menu/");
+    window.location.reload();
+    //refreshTokenSetup(res);
+  };
 
-  const { control, handleSubmit } = useForm();
+  const onFailure = (res) => {
+    console.log('Login Success: currentUser:', res.error);
+    if(res.error === "popup_closed_by_user"){
+      history.push("/Menu/");
+      window.location.reload();
+    }
+  };
+
+  const responseFacebook = (response) => {
+    console.log(response);
+    //history.push("/Menu/");
+    //window.location.reload();
+  }
 
   const handleLogin = () => {
-    /*
+    console.log('clicked login')
+
     if (!username) {
         setMessage("Please enter a valid username");
         setIserror(true);
         return;
     }
-
     
     if (!password) {
-      console.log('no password')
         setMessage("Please enter a valid password");
         setIserror(true);
         return;
     }
     
     if(password == 'admin123'){
-      console.log(password)
       history.push("/Menu/");
+      window.location.reload();
     }else{
       setMessage("Wrong password");
       setIserror(true);
       return;
     }
-    */
+    
     history.push("/Menu/");
     }
- 
+
+    const clientId =
+    '528319904751-p4ag29ges3ko15n17j4gl0svhp5hn1hk.apps.googleusercontent.com';
 
   return (
     <IonPage>
@@ -84,7 +98,7 @@ const Login = () => {
           <img src="./assets/img/axie-home-logo.png" className="w-32 mt-4 mb-10" />
         </div>
 
-        <form  className="flex justify-center w-full px-8">
+        <form className="flex justify-center w-full px-8">
           <div className="w-full space-y-4">
             <div className="bg-white rounded-md w-full">
               <IonInput
@@ -101,6 +115,7 @@ const Login = () => {
               <IonInput
                 type="password"
                 value={password}
+                onIonChange={(e) => setPassword(e.detail.value!)}
                 name="password"
                 placeholder="Password"
                 className="text-black text-center"
@@ -109,7 +124,6 @@ const Login = () => {
             <div className="text-center w-full">
               <IonButton
                 color="tertiary"
-                type="submit"
                 className="w-full text-lg mt-2"
                 onClick={handleLogin}
               >
@@ -120,13 +134,25 @@ const Login = () => {
               <div className="text-lg">or login with:</div>
               <div className="flex">
                 <div>
-                  <IonIcon
-                    className="text-6xl m-4"
-                    icon={logoFacebook}
-                  ></IonIcon>
+                      <FacebookLogin
+                          appId="1271596656696222"
+                          //autoLoad={true}
+                          cssClass="facebook-button"
+                          textButton="Facebook"
+                          fields="name,email,picture"
+                          scope="public_profile,user_friends"
+                          callback={responseFacebook}
+                          icon="fa-facebook" />
                 </div>
+                  <h1>.</h1>or<h1>.</h1>
                 <div>
-                  <IonIcon className="text-6xl m-4" icon={logoGoogle}></IonIcon>
+                <GoogleLogin
+                      clientId={clientId}
+                      onSuccess={onSuccess}
+                      onFailure={onFailure}
+                      buttonText="Google"
+                      cookiePolicy={'single_host_origin'}
+                    />
                 </div>
               </div>
               <div className="text-xs font-thin font-sans text-justify">
