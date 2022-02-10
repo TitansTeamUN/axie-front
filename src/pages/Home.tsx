@@ -138,19 +138,22 @@ const Login = () => {
                           appId="1271596656696222"
                           //autoLoad={true}
                           cssClass="facebook-button"
-                          textButton="Facebook"
+                          textButton=""
                           fields="name,email,picture"
                           scope="public_profile,user_friends"
                           callback={responseFacebook}
                           icon="fa-facebook" />
                 </div>
-                  <h1></h1>or<h1></h1>
+                  
                 <div>
                 <GoogleLogin
                       clientId={clientId}
                       onSuccess={onSuccess}
                       onFailure={onFailure}
-                      buttonText="Google"
+                      render={renderProps => (
+                        <button onClick={renderProps.onClick} className="google-button"><IonIcon icon={logoGoogle}/></button>
+                      )}
+                      buttonText=""
                       cookiePolicy={'single_host_origin'}
                     />
                 </div>
