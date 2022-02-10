@@ -1,10 +1,11 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'Axie-Front',
-  webDir: 'build',
-  bundledWebRuntime: false
+  "appId": "com.example.app",
+  "appName": "axie-front",
+  "webDir": "build",
+  "bundledWebRuntime": false
 };
 
 export default config;
+
